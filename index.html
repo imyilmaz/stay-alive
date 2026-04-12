@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAYATTA KAL | Stay Alive Official</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --accent-red: #a1a1a1;
+            --accent-gold: #d1a302;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Lang Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent-gold);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero / Splash Area */
+        .hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 1)), url('splash.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 8px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .play-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background-color: var(--accent-gold);
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .how-to-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .info-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .side-image {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 20px;
+        }
+
+        .hint-box {
+            background: rgba(209, 163, 2, 0.05);
+            border: 1px dashed var(--accent-gold);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+            color: var(--accent-gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .how-to-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">EN</button>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="title">HAYATTA KAL</h1>
+            <a href="https://hayatta-kal-app.vercel.app/" class="play-btn" id="playBtn">HEMEN OYNA</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section">
+            <div class="section-header">
+                <h2 id="howToTitle">NASIL OYNANIR</h2>
+            </div>
+
+            <div class="how-to-grid">
+                <div class="how-to-content" id="infoCards">
+                </div>
+
+                <div class="how-to-media">
+                    <img src="well_done2.jpg" alt="Game View" class="side-image">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="footerText">
+        &copy; 2026 imyilmaz | Hayatta Kal Project
+    </footer>
+
+    <script>
+        const translations = {
+            tr: {
+                langBtn: "EN",
+                title: "HAYATTA KAL",
+                playBtn: "HEMEN OYNA",
+                howToTitle: "NASIL OYNANIR",
+                footer: "&copy; 2026 imyilmaz - Github | Hayatta Kal",
+                hint: "<strong>İPUCU:</strong> Nadir olarak tek bir doğru yol vardır. Yanal düşün ve bulduğun eşyalara güven.",
+                cards: [
+                    { h: "HAYATTA KALMA", p: "Canın (HP) veya Meşalen (Enerji) sıfıra düşerse kalıcı olarak ölürsün. Enerji her adımda sürekli azalır, çok dikkatli yönet." },
+                    { h: "ENVANTER", p: "Çok fazla eşya taşıyabilirsin. Bazı tehlikeli yollara girebilmek veya hayati takaslar yapabilmek için spesifik eşyaları bulmak şarttır." },
+                    { h: "İHTİMAL", p: "Renkler seçimin risk seviyesini gösterir. Yeşil seçimler seni hayatta tutar ancak yolu uzatır. Turuncular orta risklidir. Kırmızılar ise çok risklidir ve öldürebilir ancak yolu kısaltır." },
+                    { h: "YETENEKLER", p: "Başarılı her kaçış sana kalıcı 'Puan' kazandırır. Bunları menüdeki Yeteneklere harcayarak işini kolaylaştır." },
+                    { h: "ZAMAN AŞIMI", p: "Ekranda karar vermek için beklediğin her an yavaş yavaş enerjini tüketir. Hızlı düşün, hızlı karar ver." }
+                ]
+            },
+            en: {
+                langBtn: "TR",
+                title: "STAY ALIVE",
+                playBtn: "PLAY NOW",
+                howToTitle: "HOW TO PLAY",
+                footer: "&copy; 2026 imyilmaz - Github | Stay Alive",
+                hint: "<strong>HINT:</strong> Rarely is there only one right way. Think laterally and trust the items you find.",
+                cards: [
+                    { h: "SURVIVAL", p: "If your Health (HP) or Torch (Energy) drops to zero, you die permanently. Energy decreases with every step, manage it carefully." },
+                    { h: "INVENTORY", p: "You can carry many items. Finding specific items is essential to enter certain dangerous paths or make vital trades." },
+                    { h: "PROBABILITY", p: "Colors indicate the risk level of your choice. Green choices keep you alive but lengthen the path. Orange is medium risk. Red is high risk and can kill, but shortens the path." },
+                    { h: "ABILITIES", p: "Every successful escape earns you permanent 'Points'. Spend these on Abilities in the menu to make your journey easier." },
+                    { h: "TIMEOUT", p: "Every moment you wait to make a decision on screen slowly consumes your energy. Think fast, decide fast." }
+                ]
+            }
+        };
+
+        let currentLang = 'tr';
+
+        function updateContent() {
+            const data = translations[currentLang];
+
+            // Text updates
+            document.getElementById('langBtn').innerText = data.langBtn;
+            document.getElementById('title').innerText = data.title;
+            document.getElementById('playBtn').innerText = data.playBtn;
+            document.getElementById('howToTitle').innerText = data.howToTitle;
+            document.getElementById('footerText').innerHTML = data.footer;
+
+            // Cards update
+            const container = document.getElementById('infoCards');
+            let cardsHtml = '';
+            data.cards.forEach(card => {
+                cardsHtml += `
+                    <div class="info-card">
+                        <h3>${card.h}</h3>
+                        <p>${card.p}</p>
+                    </div>
+                `;
+            });
+            cardsHtml += `<div class="hint-box">${data.hint}</div>`;
+            container.innerHTML = cardsHtml;
+
+            // HTML lang attribute update
+            document.documentElement.lang = currentLang;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            updateContent();
+        }
+
+        // Initial load
+        updateContent();
+    </script>
+</body>
+
+</html>
