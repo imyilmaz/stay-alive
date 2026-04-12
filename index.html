@@ -25,7 +25,6 @@
             line-height: 1.6;
         }
 
-        /* Lang Switcher */
         .lang-switcher {
             position: fixed;
             top: 20px;
@@ -41,13 +40,6 @@
             cursor: pointer;
             border-radius: 4px;
             font-weight: bold;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-        }
-
-        .lang-btn:hover {
-            border-color: var(--accent-gold);
-            color: #fff;
         }
 
         .container {
@@ -56,9 +48,7 @@
             padding: 0 20px;
         }
 
-        /* Hero / Splash Area */
         .hero {
-            position: relative;
             height: 80vh;
             display: flex;
             align-items: center;
@@ -72,7 +62,6 @@
 
         .hero-content h1 {
             font-size: 3.5rem;
-            margin: 0;
             letter-spacing: 8px;
             color: #fff;
             text-transform: uppercase;
@@ -87,22 +76,10 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 6px;
-            transition: transform 0.2s, opacity 0.2s;
         }
 
-        .play-btn:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
-
-        /* Section */
         .section {
             padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
         }
 
         .section-header h2 {
@@ -110,6 +87,8 @@
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 4px;
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .how-to-grid {
@@ -134,12 +113,6 @@
             text-transform: uppercase;
         }
 
-        .info-card p {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-
         .side-image {
             width: 100%;
             border-radius: 12px;
@@ -148,14 +121,36 @@
             top: 20px;
         }
 
-        .hint-box {
-            background: rgba(209, 163, 2, 0.05);
-            border: 1px dashed var(--accent-gold);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 30px;
+        /* Changelog Styles */
+        .changelog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .log-item {
+            padding: 15px;
+            border-left: 3px solid var(--accent-gold);
+            background: var(--card-bg);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .log-date {
+            font-size: 0.8rem;
             color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .log-title {
+            font-weight: bold;
+            display: block;
+            margin: 5px 0;
+            color: #fff;
+        }
+
+        .log-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
         }
 
         footer {
@@ -187,7 +182,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 id="title">HAYATTA KAL</h1>
-            <a href="https://hayatta-kal-app.vercel.app/" class="play-btn" id="playBtn">HEMEN OYNA</a>
+            <a href="https://hayatta-kal-three.vercel.app/" class="play-btn" id="playBtn">HEMEN OYNA</a>
         </div>
     </section>
 
@@ -196,92 +191,98 @@
             <div class="section-header">
                 <h2 id="howToTitle">NASIL OYNANIR</h2>
             </div>
-
             <div class="how-to-grid">
-                <div class="how-to-content" id="infoCards">
-                </div>
+                <div class="how-to-content" id="infoCards"></div>
+                <div class="how-to-media"><img src="well_done2.jpg" alt="Game View" class="side-image"></div>
+            </div>
+        </section>
 
-                <div class="how-to-media">
-                    <img src="well_done2.jpg" alt="Game View" class="side-image">
-                </div>
+        <section class="section">
+            <div class="section-header">
+                <h2 id="logTitle">YAPILANLAR</h2>
+            </div>
+            <div class="changelog-list" id="changelogContent">
             </div>
         </section>
     </div>
 
-    <footer id="footerText">
-        &copy; 2026 imyilmaz | Hayatta Kal Project
-    </footer>
+    <footer id="footerText"></footer>
 
     <script>
         const translations = {
             tr: {
-                langBtn: "EN",
-                title: "HAYATTA KAL",
-                playBtn: "HEMEN OYNA",
-                howToTitle: "NASIL OYNANIR",
-                footer: "&copy; 2026 imyilmaz - Github | Hayatta Kal",
-                hint: "<strong>İPUCU:</strong> Nadir olarak tek bir doğru yol vardır. Farklı düşün ve bulduğun eşyalara güven.",
+                langBtn: "EN", title: "HAYATTA KAL", playBtn: "HEMEN OYNA", howToTitle: "NASIL OYNANIR", logTitle: "GELİŞTİRME GÜNLÜĞÜ",
+                footer: "&copy; 2026 imyilmaz | Hayatta Kal Project",
                 cards: [
-                    { h: "HAYATTA KALMA", p: "Canın (HP) veya Meşalen (Enerji) sıfıra düşerse kalıcı olarak ölürsün. Enerji her adımda sürekli azalır, çok dikkatli yönet." },
-                    { h: "ENVANTER", p: "Çok fazla eşya taşıyabilirsin. Bazı tehlikeli yollara girebilmek veya hayati takaslar yapabilmek için spesifik eşyaları bulmak şarttır." },
-                    { h: "İHTİMAL", p: "Renkler seçimin risk seviyesini gösterir. Yeşil seçimler seni hayatta tutar ancak yolu uzatır. Turuncular orta risklidir. Kırmızılar ise çok risklidir ve öldürebilir ancak yolu kısaltır." },
-                    { h: "YETENEKLER", p: "Başarılı her kaçış sana kalıcı 'Puan' kazandırır. Bunları menüdeki Yeteneklere harcayarak işini kolaylaştır." },
-                    { h: "ZAMAN AŞIMI", p: "Ekranda karar vermek için beklediğin her an yavaş yavaş enerjini tüketir. Hızlı düşün, hızlı karar ver." }
+                    { h: "HAYATTA KALMA", p: "Canın (HP) veya Meşalen (Enerji) sıfıra düşerse kalıcı olarak ölürsün. Enerji her adımda sürekli azalır." },
+                    { h: "ENVANTER", p: "Özel yollar ve takaslar için spesifik eşyaları bulmak şarttır." },
+                    { h: "İHTİMAL", p: "Renkler riski temsil eder: Yeşil (Güvenli/Uzun), Turuncu (Orta), Kırmızı (Tehlikeli/Kısa)." },
+                    { h: "YETENEKLER", p: "Kazandığın puanlarla yeteneklerini geliştirerek hayatta kalma şansını artır." },
+                    { h: "ZAMAN AŞIMI", p: "Hızlı düşün. Karar vermediğin her an enerjin tükenir." }
+                ],
+                logs: [
+                    { d: "2026-04-12", t: "Dil Desteği", r: "Oyun atmosferini dünyaya açmak için tam İngilizce yerelleştirme yapıldı." },
+                    { d: "2026-04-12", t: "AI Senaryo Motoru", r: "Gemini API entegrasyonu ile her gün otomatik ve eşsiz senaryolar üretilmesi sağlandı." },
+                    { d: "2026-04-12", t: "Mimari Dönüşüm", r: "Daha hızlı ve sürdürülebilir bir yapı için 'Thin-Client' mimarisine geçildi." },
+                    { d: "2026-04-12", t: "Yetenek Sistemi", r: "Yetenek ağacı ve puanlama mekanikleri tamamen yenilendi." },
+                    { d: "2026-04-12", t: "Ses ve Atmosfer", r: "Kalıcı ses ayarları ve dinamik ses motoru iyileştirmeleri eklendi." },
+                    { d: "2026-04-12", t: "Ekonomi ve Market", r: "Premium seçimler ve RevenueCat ile uygulama içi satın alım altyapısı kuruldu." },
+                    { d: "2026-04-11", t: "Görsel Optimizasyon", r: "Performansı artırmak için tüm varlıklar JPEG formatına taşındı ve merkezi haritalama yapıldı." },
+                    { d: "2026-04-09", t: "Mobil Uyumluluk", r: "Responsive UI ve Safe Area destekleri ile mobil cihazlarda kusursuz görünüm sağlandı." },
+                    { d: "2026-04-01", t: "Dinamik Ses Motoru", r: "Kalp atışı ve çevresel sesler için Web Audio API tabanlı prosedürel motor eklendi." }
                 ]
             },
             en: {
-                langBtn: "TR",
-                title: "STAY ALIVE",
-                playBtn: "PLAY NOW",
-                howToTitle: "HOW TO PLAY",
-                footer: "&copy; 2026 imyilmaz - Github | Stay Alive",
-                hint: "<strong>HINT:</strong> Rarely is there only one right way. Think laterally and trust the items you find.",
+                langBtn: "TR", title: "STAY ALIVE", playBtn: "PLAY NOW", howToTitle: "HOW TO PLAY", logTitle: "DEVELOPMENT LOG",
+                footer: "&copy; 2026 imyilmaz | Stay Alive Project",
                 cards: [
-                    { h: "SURVIVAL", p: "If your Health (HP) or Torch (Energy) drops to zero, you die permanently. Energy decreases with every step, manage it carefully." },
-                    { h: "INVENTORY", p: "You can carry many items. Finding specific items is essential to enter certain dangerous paths or make vital trades." },
-                    { h: "PROBABILITY", p: "Colors indicate the risk level of your choice. Green choices keep you alive but lengthen the path. Orange is medium risk. Red is high risk and can kill, but shortens the path." },
-                    { h: "ABILITIES", p: "Every successful escape earns you permanent 'Points'. Spend these on Abilities in the menu to make your journey easier." },
-                    { h: "TIMEOUT", p: "Every moment you wait to make a decision on screen slowly consumes your energy. Think fast, decide fast." }
+                    { h: "SURVIVAL", p: "If Health or Energy hits zero, you die permanently. Energy drains with every step." },
+                    { h: "INVENTORY", p: "Specific items are required for special paths and trades." },
+                    { h: "PROBABILITY", p: "Colors represent risk: Green (Safe/Long), Orange (Mid), Red (Deadly/Short)." },
+                    { h: "ABILITIES", p: "Upgrade your skills with earned points to increase survival chances." },
+                    { h: "TIMEOUT", p: "Think fast. Every idle second consumes your energy." }
+                ],
+                logs: [
+                    { d: "2026-04-12", t: "Localization", r: "Full English localization implemented to bring the atmosphere to global players." },
+                    { d: "2026-04-12", t: "AI Scenario Engine", r: "Automated daily unique scenario generation via Gemini API integration." },
+                    { d: "2026-04-12", t: "Architecture Shift", r: "Transitioned to 'Thin-Client' architecture for a faster and scalable experience." },
+                    { d: "2026-04-12", t: "Skill Overhaul", r: "Completely redesigned the skill tree and progression mechanics." },
+                    { d: "2026-04-12", t: "Audio & Ambience", r: "Added persistent volume settings and dynamic audio engine improvements." },
+                    { d: "2026-04-12", t: "In-App Purchases", r: "Implemented RevenueCat for premium choices and store functionality." },
+                    { d: "2026-04-11", t: "Asset Optimization", r: "Migrated all assets to JPEG and centralized mapping for better performance." },
+                    { d: "2026-04-09", t: "Mobile Compatibility", r: "Implemented responsive UI and Safe Area context for mobile devices." },
+                    { d: "2026-04-01", t: "Dynamic Audio", r: "Added procedural engine based on Web Audio API for heartbeat and ambient effects." }
                 ]
             }
         };
 
         let currentLang = 'tr';
-
         function updateContent() {
             const data = translations[currentLang];
-
-            // Text updates
             document.getElementById('langBtn').innerText = data.langBtn;
             document.getElementById('title').innerText = data.title;
             document.getElementById('playBtn').innerText = data.playBtn;
             document.getElementById('howToTitle').innerText = data.howToTitle;
+            document.getElementById('logTitle').innerText = data.logTitle;
             document.getElementById('footerText').innerHTML = data.footer;
 
-            // Cards update
-            const container = document.getElementById('infoCards');
-            let cardsHtml = '';
-            data.cards.forEach(card => {
-                cardsHtml += `
-                    <div class="info-card">
-                        <h3>${card.h}</h3>
-                        <p>${card.p}</p>
-                    </div>
-                `;
-            });
-            cardsHtml += `<div class="hint-box">${data.hint}</div>`;
-            container.innerHTML = cardsHtml;
+            // Update Cards
+            const cardContainer = document.getElementById('infoCards');
+            cardContainer.innerHTML = data.cards.map(c => `<div class="info-card"><h3>${c.h}</h3><p>${c.p}</p></div>`).join('');
 
-            // HTML lang attribute update
+            // Update Logs
+            const logContainer = document.getElementById('changelogContent');
+            logContainer.innerHTML = data.logs.map(l => `
+                <div class="log-item">
+                    <span class="log-date">${l.d}</span>
+                    <span class="log-title">${l.t}</span>
+                    <span class="log-desc">${l.r}</span>
+                </div>
+            `).join('');
             document.documentElement.lang = currentLang;
         }
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'tr' ? 'en' : 'tr';
-            updateContent();
-        }
-
-        // Initial load
+        function toggleLanguage() { currentLang = currentLang === 'tr' ? 'en' : 'tr'; updateContent(); }
         updateContent();
     </script>
 </body>
