@@ -8,21 +8,45 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <style>
         :root {
-            --bg-color: #0d1117;
-            --accent-red: #a1a1a1;
-            --accent-gold: #d1a302;
-            --text-main: #c9d1d9;
-            --text-dim: #8b949e;
-            --card-bg: #161b22;
-            --border-color: #30363d;
+            --bg-color: #05070a;
+            --accent-gold: #ffcc00;
+            --accent-red: #ff4d4d;
+            --text-main: #e6edf3;
+            --text-dim: #7d8590;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --border-color: rgba(48, 54, 61, 0.8);
+            --glass-bg: rgba(13, 17, 23, 0.6);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 77, 77, 0.05) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
         }
 
         .lang-switcher {
@@ -33,141 +57,223 @@
         }
 
         .lang-btn {
-            background: var(--card-bg);
+            background: var(--glass-bg);
             color: var(--text-main);
             border: 1px solid var(--border-color);
-            padding: 8px 15px;
+            padding: 10px 20px;
             cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
+            border-radius: 50px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .hero {
-            height: 80vh;
+            height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 1)), url('splash.jpg');
+            background: linear-gradient(rgba(5, 7, 10, 0.4), rgba(5, 7, 10, 1)), url('splash.jpg');
             background-size: cover;
             background-position: center;
-            border-bottom: 1px solid var(--border-color);
+            position: relative;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            letter-spacing: 8px;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: 12px;
             color: #fff;
             text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 204, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
         }
 
         .play-btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
+            margin-top: 40px;
+            padding: 20px 60px;
             background-color: var(--accent-gold);
-            color: black;
+            color: #000;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.4);
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 204, 0, 0.6);
         }
 
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
         }
 
         .how-to-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: start;
         }
 
         .info-card {
-            background: var(--card-bg);
+            background: var(--glass-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .info-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-gold);
+            background: rgba(22, 27, 34, 0.8);
         }
 
         .info-card h3 {
-            margin-top: 0;
-            color: var(--accent-red);
-            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+            color: var(--accent-gold);
+            font-size: 1.25rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: var(--text-dim);
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
         .side-image {
             width: 100%;
-            border-radius: 12px;
+            border-radius: 24px;
             border: 1px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             position: sticky;
-            top: 20px;
+            top: 40px;
         }
 
-        /* Changelog Styles */
         .changelog-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .log-item {
-            padding: 15px;
-            border-left: 3px solid var(--accent-gold);
-            background: var(--card-bg);
-            border-radius: 0 8px 8px 0;
+            padding: 25px;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .log-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
         }
 
         .log-date {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--accent-gold);
-            font-weight: bold;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .log-title {
-            font-weight: bold;
+            font-weight: 800;
+            font-size: 1.2rem;
             display: block;
-            margin: 5px 0;
+            margin-bottom: 12px;
             color: #fff;
         }
 
         .log-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-dim);
         }
 
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
             color: var(--text-dim);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
+            background: rgba(5, 7, 10, 0.5);
         }
 
-        @media (max-width: 768px) {
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
             .how-to-grid {
                 grid-template-columns: 1fr;
             }
-
             .hero-content h1 {
-                font-size: 2rem;
+                letter-spacing: 6px;
             }
         }
     </style>
@@ -215,43 +321,33 @@
                 footer: "&copy; 2026 imyilmaz | Hayatta Kal Project",
                 cards: [
                     { h: "HAYATTA KALMA", p: "Canın (HP) veya Meşalen (Enerji) sıfıra düşerse kalıcı olarak ölürsün. Enerji her adımda sürekli azalır." },
-                    { h: "ENVANTER", p: "Özel yollar ve takaslar için spesifik eşyaları bulmak şarttır." },
-                    { h: "İHTİMAL", p: "Renkler riski temsil eder: Yeşil (Güvenli/Uzun), Turuncu (Orta), Kırmızı (Tehlikeli/Kısa)." },
-                    { h: "YETENEKLER", p: "Kazandığın puanlarla yeteneklerini geliştirerek hayatta kalma şansını artır." },
-                    { h: "ZAMAN AŞIMI", p: "Hızlı düşün. Karar vermediğin her an enerjin tükenir." }
+                    { h: "TAKVİM SİSTEMİ", p: "Her gün yeni ve benzersiz bir bölüm dünyası seni bekliyor. Takvimi takip et ve her güne özel zorlukları aş." },
+                    { h: "SEVİYE VE KARAKTERLER", p: "Her başarılı kaçışta 2 XP kazan. Her 10 XP'de seviye atla ve her 5 seviyede bir yeni bir karakterin kilidini aç!" },
+                    { h: "İHTİMAL VE RİSK", p: "Renkler riski temsil eder: Yeşil (Güvenli), Turuncu (Orta), Kırmızı (Tehlikeli). Kararını doğru ver." },
+                    { h: "ENVANTER VE TAKAS", p: "Özel yollar ve hayatta kalmak için kritik eşyaları bulmalı ve akıllıca takas yapmalısın." }
                 ],
                 logs: [
-                    { d: "2026-04-12", t: "Dil Desteği", r: "Oyun atmosferini dünyaya açmak için tam İngilizce yerelleştirme yapıldı." },
-                    { d: "2026-04-12", t: "AI Senaryo Motoru", r: "Gemini API entegrasyonu ile her gün otomatik ve eşsiz senaryolar üretilmesi sağlandı." },
-                    { d: "2026-04-12", t: "Mimari Dönüşüm", r: "Daha hızlı ve sürdürülebilir bir yapı için 'Thin-Client' mimarisine geçildi." },
-                    { d: "2026-04-12", t: "Yetenek Sistemi", r: "Yetenek ağacı ve puanlama mekanikleri tamamen yenilendi." },
-                    { d: "2026-04-12", t: "Ses ve Atmosfer", r: "Kalıcı ses ayarları ve dinamik ses motoru iyileştirmeleri eklendi." },
-                    { d: "2026-04-12", t: "Ekonomi ve Market", r: "Premium seçimler ve RevenueCat ile uygulama içi satın alım altyapısı kuruldu." },
-                    { d: "2026-04-11", t: "Görsel Optimizasyon", r: "Performansı artırmak için tüm varlıklar JPEG formatına taşındı ve merkezi haritalama yapıldı." },
-                    { d: "2026-04-09", t: "Mobil Uyumluluk", r: "Responsive UI ve Safe Area destekleri ile mobil cihazlarda kusursuz görünüm sağlandı." },
-                    { d: "2026-04-01", t: "Dinamik Ses Motoru", r: "Kalp atışı ve çevresel sesler için Web Audio API tabanlı prosedürel motor eklendi." }
+                    { d: "2026-04-13", t: "Büyük Güncelleme: Seviye & Takvim", r: "Oyun mantığı tamamen değiştirildi. Takvimsel günlük bölümler, XP tabanlı seviye sistemi ve karakter açma mekanikleri eklendi. Yetenek sistemi kaldırıldı." },
+                    { d: "2026-04-12", t: "Dil Desteği & AI", r: "İngilizce yerelleştirme ve Gemini API tabanlı günlük senaryo motoru entegre edildi." },
+                    { d: "2026-04-12", t: "Mimari ve Ekonomi", r: "Thin-Client mimarisine geçiş ve RevenueCat ile uygulama içi satın alım altyapısı tamamlandı." },
+                    { d: "2026-04-11", t: "Görsel & Mobil", r: "Varlık optimizasyonu ve mobil cihazlar için kusursuz responsive arayüz geliştirmeleri yapıldı." }
                 ]
             },
             en: {
                 langBtn: "TR", title: "STAY ALIVE", playBtn: "PLAY NOW", howToTitle: "HOW TO PLAY", logTitle: "DEVELOPMENT LOG",
                 footer: "&copy; 2026 imyilmaz | Stay Alive Project",
                 cards: [
-                    { h: "SURVIVAL", p: "If Health or Energy hits zero, you die permanently. Energy drains with every step." },
-                    { h: "INVENTORY", p: "Specific items are required for special paths and trades." },
-                    { h: "PROBABILITY", p: "Colors represent risk: Green (Safe/Long), Orange (Mid), Red (Deadly/Short)." },
-                    { h: "ABILITIES", p: "Upgrade your skills with earned points to increase survival chances." },
-                    { h: "TIMEOUT", p: "Think fast. Every idle second consumes your energy." }
+                    { h: "SURVIVAL", p: "If Health or Energy hits zero, you die. Energy drains with every single step you take." },
+                    { h: "CALENDAR SYSTEM", p: "A new and unique world awaits you every day. Follow the calendar and conquer daily challenges." },
+                    { h: "LEVELS & CHARACTERS", p: "Earn 2 XP for each escape. Level up every 10 XP and unlock a new character every 5 levels!" },
+                    { h: "RISK & PROBABILITY", p: "Colors represent risk levels: Green (Safe), Orange (Medium), Red (Dangerous). Choose wisely." },
+                    { h: "INVENTORY & TRADE", p: "Find critical items and perform smart trades to unlock special paths and survive longer." }
                 ],
                 logs: [
-                    { d: "2026-04-12", t: "Localization", r: "Full English localization implemented to bring the atmosphere to global players." },
-                    { d: "2026-04-12", t: "AI Scenario Engine", r: "Automated daily unique scenario generation via Gemini API integration." },
-                    { d: "2026-04-12", t: "Architecture Shift", r: "Transitioned to 'Thin-Client' architecture for a faster and scalable experience." },
-                    { d: "2026-04-12", t: "Skill Overhaul", r: "Completely redesigned the skill tree and progression mechanics." },
-                    { d: "2026-04-12", t: "Audio & Ambience", r: "Added persistent volume settings and dynamic audio engine improvements." },
-                    { d: "2026-04-12", t: "In-App Purchases", r: "Implemented RevenueCat for premium choices and store functionality." },
-                    { d: "2026-04-11", t: "Asset Optimization", r: "Migrated all assets to JPEG and centralized mapping for better performance." },
-                    { d: "2026-04-09", t: "Mobile Compatibility", r: "Implemented responsive UI and Safe Area context for mobile devices." },
-                    { d: "2026-04-01", t: "Dynamic Audio", r: "Added procedural engine based on Web Audio API for heartbeat and ambient effects." }
+                    { d: "2026-04-13", t: "Major Update: Levels & Calendar", r: "Completely overhauled game logic. Added daily calendar levels, XP system, and character unlocking. Removed abilities." },
+                    { d: "2026-04-12", t: "Localization & AI", r: "Full English localization and Gemini API scenario engine integration." },
+                    { d: "2026-04-12", t: "Architecture & Store", r: "Transitioned to Thin-Client architecture and implemented RevenueCat for IAP." },
+                    { d: "2026-04-11", t: "Asset & Mobile Optimization", r: "Optimized all assets and implemented full responsive support for mobile devices." }
                 ]
             }
         };
