@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="tr">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10110f">
-  <meta name="description" content="Hayatta Kal: her güne ayrı bir hikâye, her karara başka bir ihtimal. Karakterini seç, riskini yönet ve karanlıktan çıkış yolunu bul. Android ve iOS için hazırlanıyor.">
+  <meta name="description"
+    content="Hayatta Kal: her güne ayrı bir hikâye, her karara başka bir ihtimal. Karakterini seç, riskini yönet ve karanlıktan çıkış yolunu bul. Android ve iOS için hazırlanıyor.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:title" content="Hayatta Kal — Her kararın bir bedeli var.">
-  <meta property="og:description" content="Metin tabanlı hayatta kalma oyunu. Bir takvim dolusu bilinmezlik. Android ve iOS için yakında.">
+  <meta property="og:description"
+    content="Metin tabanlı hayatta kalma oyunu. Bir takvim dolusu bilinmezlik. Android ve iOS için yakında.">
   <title>Hayatta Kal — Her kararın bir bedeli var.</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preload" href="splash.jpg" as="image">
@@ -18,40 +21,96 @@
   <script src="characters.js" defer></script>
   <script src="script.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#hikaye">İçeriğe geç</a>
-  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
-    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
-    <symbol id="i-fang" viewBox="0 0 24 24"><path d="m4 5 4 15 4-10 4 10 4-15M4 5c4 3 12 3 16 0"/></symbol>
-    <symbol id="i-hood" viewBox="0 0 24 24"><path d="M4 16C4 7 12 3 12 3s8 4 8 13l-8 5-8-5Z"/><path d="m7 14 5-3 5 3m-8 2h1m4 0h1"/></symbol>
-    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></symbol>
-    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6m-5 0v6L4 19c-1 2 1 2 2 2h12c1 0 3 0 2-2L14 9V3M7 15h10"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z"/></symbol>
-    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6 6-2Z"/></symbol>
-    <symbol id="i-ghost" viewBox="0 0 24 24"><path d="M5 21V10a7 7 0 0 1 14 0v11l-4-3-3 3-3-3-4 3Z"/><path d="M9 10v2m6-2v2"/></symbol>
-    <symbol id="i-titan" viewBox="0 0 24 24"><path d="m7 3 13 4-3 8-13-4 3-8Zm5 11-3 8"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A9 9 0 0 1 10 3a9 9 0 1 0 10 11Z"/></symbol>
-    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="19" r="2"/><path d="M6 7v5c0 5 12-5 12 0v5"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z"/></symbol>
-    <symbol id="i-orb" viewBox="0 0 24 24"><circle cx="12" cy="10" r="7"/><path d="m8 17-2 4h12l-2-4m-7-11 6 8m0-8-6 8"/></symbol>
-    <symbol id="i-fire" viewBox="0 0 24 24"><path d="M13 2c2 7-4 7-2 12 2-1 4-3 4-5 7 7 5 13-3 13S1 16 7 9c0 4 1 5 2 5-2-6 4-6 4-12Z"/></symbol>
-  </defs></svg>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path
+          d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24">
+        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+        <circle cx="12" cy="12" r="3" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z" />
+        <path d="m8 12 3 3 5-6" />
+      </symbol>
+      <symbol id="i-fang" viewBox="0 0 24 24">
+        <path d="m4 5 4 15 4-10 4 10 4-15M4 5c4 3 12 3 16 0" />
+      </symbol>
+      <symbol id="i-hood" viewBox="0 0 24 24">
+        <path d="M4 16C4 7 12 3 12 3s8 4 8 13l-8 5-8-5Z" />
+        <path d="m7 14 5-3 5 3m-8 2h1m4 0h1" />
+      </symbol>
+      <symbol id="i-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="7" />
+        <circle cx="12" cy="12" r="2" />
+        <path d="M12 2v5m0 10v5M2 12h5m10 0h5" />
+      </symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24">
+        <path d="M9 3h6m-5 0v6L4 19c-1 2 1 2 2 2h12c1 0 3 0 2-2L14 9V3M7 15h10" />
+      </symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24">
+        <path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" />
+      </symbol>
+      <symbol id="i-compass" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="m16 8-2 6-6 2 2-6 6-2Z" />
+      </symbol>
+      <symbol id="i-ghost" viewBox="0 0 24 24">
+        <path d="M5 21V10a7 7 0 0 1 14 0v11l-4-3-3 3-3-3-4 3Z" />
+        <path d="M9 10v2m6-2v2" />
+      </symbol>
+      <symbol id="i-titan" viewBox="0 0 24 24">
+        <path d="m7 3 13 4-3 8-13-4 3-8Zm5 11-3 8" />
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M20 14A9 9 0 0 1 10 3a9 9 0 1 0 10 11Z" />
+      </symbol>
+      <symbol id="i-route" viewBox="0 0 24 24">
+        <circle cx="6" cy="5" r="2" />
+        <circle cx="18" cy="19" r="2" />
+        <path d="M6 7v5c0 5 12-5 12 0v5" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z" />
+      </symbol>
+      <symbol id="i-orb" viewBox="0 0 24 24">
+        <circle cx="12" cy="10" r="7" />
+        <path d="m8 17-2 4h12l-2-4m-7-11 6 8m0-8-6 8" />
+      </symbol>
+      <symbol id="i-fire" viewBox="0 0 24 24">
+        <path d="M13 2c2 7-4 7-2 12 2-1 4-3 4-5 7 7 5 13-3 13S1 16 7 9c0 4 1 5 2 5-2-6 4-6 4-12Z" />
+      </symbol>
+    </defs>
+  </svg>
 
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
-    <a class="brand" href="#baslangic" aria-label="Hayatta Kal ana sayfa"><svg class="brand-heart"><use href="#i-heart"/></svg><span>HAYATTA KAL<small>HER KARARIN BİR BEDELİ VAR.</small></span></a>
-    <nav id="main-nav" aria-label="Ana menü"><a href="#hikaye">Hikâye</a><a href="#karakterler">Karakterler</a><a href="#nasil-oynanir">Nasıl oynanır?</a><a href="#teknoloji">Meraklısına</a></nav>
+    <a class="brand" href="#baslangic" aria-label="Hayatta Kal ana sayfa"><svg class="brand-heart">
+        <use href="#i-heart" />
+      </svg><span>HAYATTA KAL<small>HER KARARIN BİR BEDELİ VAR.</small></span></a>
+    <nav id="main-nav" aria-label="Ana menü"><a href="#hikaye">Hikâye</a><a href="#karakterler">Karakterler</a><a
+        href="#nasil-oynanir">Nasıl oynanır?</a><a href="#teknoloji">Meraklısına</a></nav>
     <a class="header-cta" href="#indir"><span class="status-dot"></span> MOBİLDE YAKINDA</a>
-    <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Menüyü aç"><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false"
+      aria-label="Menüyü aç"><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
   </header>
 
   <div class="mobile-drawer" id="mobile-menu" inert>
     <button class="drawer-backdrop" type="button" aria-label="Menü dışına dokunarak kapat" tabindex="-1"></button>
     <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobil menü">
-      <div class="drawer-top"><a class="brand" href="#baslangic" aria-label="Mobil menü ana sayfa"><svg class="brand-heart"><use href="#i-heart"/></svg><span>HAYATTA KAL<small>HER KARARIN BİR BEDELİ VAR.</small></span></a><button class="drawer-close" type="button" aria-label="Mobil menüyü kapat"><span></span><span></span></button></div>
+      <div class="drawer-top"><a class="brand" href="#baslangic" aria-label="Mobil menü ana sayfa"><svg
+            class="brand-heart">
+            <use href="#i-heart" />
+          </svg><span>HAYATTA KAL<small>HER KARARIN BİR BEDELİ VAR.</small></span></a><button class="drawer-close"
+          type="button" aria-label="Mobil menüyü kapat"><span></span><span></span></button></div>
       <nav class="drawer-links" aria-label="Mobil gezinme">
         <a href="#hikaye" style="--index:0">Hikâye</a>
         <a href="#karakterler" style="--index:1">Karakterler</a>
@@ -66,164 +125,642 @@
   <main>
     <section class="hero section-shell" id="baslangic" aria-labelledby="hero-title">
       <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-art" aria-hidden="true"><img src="splash.jpg" alt="" fetchpriority="high" width="828" height="1792"><div class="art-coordinate">KONUM: BİLİNMİYOR<br>TEHDİT: BELİRSİZ</div><div class="art-tag"><span class="status-dot"></span> BİR İHTİMAL DAHA VAR.</div></div>
+      <div class="hero-art" aria-hidden="true"><img src="splash.jpg" alt="" fetchpriority="high" width="828"
+          height="1792">
+        <div class="art-coordinate">KONUM: BİLİNMİYOR<br>TEHDİT: BELİRSİZ</div>
+        <div class="art-tag"><span class="status-dot"></span> BİR İHTİMAL DAHA VAR.</div>
+      </div>
       <div class="hero-copy">
         <div class="eyebrow"><span class="tiny-cross">+</span> HİKÂYE ODAKLI HAYATTA KALMA</div>
         <h1 id="hero-title">HAYATTA<br><span>KAL.</span></h1>
         <p class="hero-description">Karanlıkta bir yol var.<br>Hangisi olduğunu <em>sen seçeceksin.</em></p>
-        <p class="hero-subcopy">Bir takvim dolusu bilinmezlik. Farklı karakterler, dallanan hikâyeler ve geri alamayacağın kararlar.</p>
+        <p class="hero-subcopy">Bir takvim dolusu bilinmezlik. Farklı karakterler, dallanan hikâyeler ve geri
+          alamayacağın kararlar.</p>
         <div class="store-cards" id="indir" aria-label="İndirme seçenekleri yakında">
-          <button type="button" class="store-card" data-store="googlePlay" aria-disabled="true" aria-label="Google Play — yakında yayında">
-            <span class="store-card-inner"><span class="store-face store-front"><svg class="store-icon play-icon" viewBox="0 0 40 44" aria-hidden="true"><path d="M2 2 24 23 2 42Z" fill="#4bd1dd"/><path d="m2 2 27 15-5 6Z" fill="#66d17a"/><path d="m24 23 5 6L2 42Z" fill="#ff6677"/><path d="m29 17 9 5a1.2 1.2 0 0 1 0 2l-9 5-5-6Z" fill="#ffd25b"/></svg><span><small>ANDROID İÇİN</small><strong>Google Play</strong></span><span class="store-corner">↗</span></span><span class="store-face store-back" aria-hidden="true"><span class="status-dot"></span><strong>Yakında yayında</strong><small>İlk adımın burada başlayacak.</small></span></span>
+          <button type="button" class="store-card" data-store="googlePlay" aria-disabled="true"
+            aria-label="Google Play — yakında yayında">
+            <span class="store-card-inner"><span class="store-face store-front"><svg class="store-icon play-icon"
+                  viewBox="0 0 40 44" aria-hidden="true">
+                  <path d="M2 2 24 23 2 42Z" fill="#4bd1dd" />
+                  <path d="m2 2 27 15-5 6Z" fill="#66d17a" />
+                  <path d="m24 23 5 6L2 42Z" fill="#ff6677" />
+                  <path d="m29 17 9 5a1.2 1.2 0 0 1 0 2l-9 5-5-6Z" fill="#ffd25b" />
+                </svg><span><small>ANDROID İÇİN</small><strong>Google Play</strong></span><span
+                  class="store-corner">↗</span></span><span class="store-face store-back" aria-hidden="true"><span
+                  class="status-dot"></span><strong>Yakında yayında</strong><small>İlk adımın burada
+                  başlayacak.</small></span></span>
           </button>
-          <button type="button" class="store-card" data-store="appStore" aria-disabled="true" aria-label="App Store — yakında yayında">
-            <span class="store-card-inner"><span class="store-face store-front"><svg class="store-icon apple-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.05 12.54c.03 3.07 2.69 4.09 2.72 4.1-.02.07-.43 1.46-1.41 2.9-.85 1.24-1.73 2.48-3.12 2.51-1.37.03-1.81-.81-3.38-.81-1.56 0-2.05.78-3.35.84-1.34.05-2.36-1.34-3.22-2.57-1.75-2.52-3.08-7.12-1.28-10.23.89-1.55 2.48-2.53 4.2-2.56 1.31-.03 2.55.89 3.35.89.81 0 2.32-1.1 3.91-.94.66.03 2.51.27 3.7 2.01-.1.06-2.21 1.29-2.12 3.86ZM14.5 5.02c.71-.86 1.2-2.06 1.07-3.25-1.03.04-2.27.69-3.01 1.55-.66.77-1.24 2-1.08 3.17 1.15.09 2.32-.58 3.02-1.47Z"/></svg><span><small>iPHONE & iPAD İÇİN</small><strong>App Store</strong></span><span class="store-corner">↗</span></span><span class="store-face store-back" aria-hidden="true"><span class="status-dot"></span><strong>Yakında yayında</strong><small>Karanlık, cebine geliyor.</small></span></span>
+          <button type="button" class="store-card" data-store="appStore" aria-disabled="true"
+            aria-label="App Store — yakında yayında">
+            <span class="store-card-inner"><span class="store-face store-front"><svg class="store-icon apple-icon"
+                  viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor"
+                    d="M17.05 12.54c.03 3.07 2.69 4.09 2.72 4.1-.02.07-.43 1.46-1.41 2.9-.85 1.24-1.73 2.48-3.12 2.51-1.37.03-1.81-.81-3.38-.81-1.56 0-2.05.78-3.35.84-1.34.05-2.36-1.34-3.22-2.57-1.75-2.52-3.08-7.12-1.28-10.23.89-1.55 2.48-2.53 4.2-2.56 1.31-.03 2.55.89 3.35.89.81 0 2.32-1.1 3.91-.94.66.03 2.51.27 3.7 2.01-.1.06-2.21 1.29-2.12 3.86ZM14.5 5.02c.71-.86 1.2-2.06 1.07-3.25-1.03.04-2.27.69-3.01 1.55-.66.77-1.24 2-1.08 3.17 1.15.09 2.32-.58 3.02-1.47Z" />
+                </svg><span><small>iPHONE & iPAD İÇİN</small><strong>App Store</strong></span><span
+                  class="store-corner">↗</span></span><span class="store-face store-back" aria-hidden="true"><span
+                  class="status-dot"></span><strong>Yakında yayında</strong><small>Karanlık, cebine
+                  geliyor.</small></span></span>
           </button>
         </div>
         <p class="store-note">Şimdilik hazırlık aşamasında. İndirme bağlantıları yakında.</p>
       </div>
-      <div class="hero-bottom"><a class="scroll-cue" href="#hikaye"><span></span> HİKÂYEYE GİR</a><div class="hero-meta"><span>TÜRKÇE</span><i></i><span>ANDROID + iOS</span><i></i><span>15 KARAKTER</span></div><span class="edition">BİR SONRAKİ GÜNE ULAŞ.</span></div>
+      <div class="hero-bottom"><a class="scroll-cue" href="#hikaye"><span></span> HİKÂYEYE GİR</a>
+        <div class="hero-meta"><span>TÜRKÇE</span><i></i><span>ANDROID + iOS</span><i></i><span>15 KARAKTER</span></div>
+        <span class="edition">BİR SONRAKİ GÜNE ULAŞ.</span>
+      </div>
     </section>
 
-    <div class="manifesto-strip" aria-hidden="true"><div>HER GÜN BAŞKA BİR İHTİMAL <span>✳</span> HER KARAR BAŞKA BİR SON <span>✳</span> HAYATTA KAL <span>✳</span></div></div>
+    <div class="manifesto-strip" aria-hidden="true">
+      <div>HER GÜN BAŞKA BİR İHTİMAL <span>✳</span> HER KARAR BAŞKA BİR SON <span>✳</span> HAYATTA KAL <span>✳</span>
+      </div>
+    </div>
 
     <section class="story-section section-shell" id="hikaye" aria-labelledby="story-title">
       <div class="section-label reveal"><span>01 / HİKÂYE</span><span>SONUNU SEN YAZ.</span></div>
-      <div class="story-intro"><h2 class="display-title reveal" id="story-title">BURADA BİR<br><span>KAHRAMAN YOK.</span></h2><div class="story-copy reveal"><p class="lead">Sadece bir gün daha<br>yaşamak isteyen <em>sen varsın.</em></p><p>Gözlerini bilmediğin bir yerde açarsın. Bir ormanda, terk edilmiş bir şehirde, çıkışı unutulmuş bir labirentte. Elinde birkaç eşya, önünde birbirinden şüpheli yollar.</p><p>İlerlemek tehlikeli. Beklemek de öyle. Bazen bir ses seni kurtarır; bazen peşine düşmen son kararın olur.</p></div></div>
+      <div class="story-intro">
+        <h2 class="display-title reveal" id="story-title">BURADA BİR<br><span>KAHRAMAN YOK.</span></h2>
+        <div class="story-copy reveal">
+          <p class="lead">Sadece bir gün daha<br>yaşamak isteyen <em>sen varsın.</em></p>
+          <p>Gözlerini bilmediğin bir yerde açarsın. Bir ormanda, terk edilmiş bir şehirde, çıkışı unutulmuş bir
+            labirentte. Elinde birkaç eşya, önünde birbirinden şüpheli yollar.</p>
+          <p>İlerlemek tehlikeli. Beklemek de öyle. Bazen bir ses seni kurtarır; bazen peşine düşmen son kararın olur.
+          </p>
+        </div>
+      </div>
       <div class="worlds-layout reveal">
-        <div class="story-image"><img src="well_done2.jpg" alt="Sisli bir geçitten uzak bir yerleşime doğru yürüyen hayatta kalan" width="828" height="1792" loading="lazy"><div class="image-caption"><span>HER YOL BİR YERE ÇIKAR.</span><strong>Hepsi çıkışa değil.</strong></div></div>
-        <div class="world-list"><p class="eyebrow">ALTI ATMOSFER. SAYISIZ OLASILIK.</p><div class="world-row"><span>01</span><div><h3>Karanlık Orman</h3><p>Ağaçların arasında yalnız olduğunu sanma.</p></div><svg><use href="#i-arrow"/></svg></div><div class="world-row"><span>02</span><div><h3>Terk Edilmiş Şehir</h3><p>Boş sokaklar, kapalı kapılar, cevapsız sesler.</p></div><svg><use href="#i-arrow"/></svg></div><div class="world-row"><span>03</span><div><h3>Araba Mezarlığı</h3><p>Pas ve sis arasında hâlâ çalışan bir şey var.</p></div><svg><use href="#i-arrow"/></svg></div><div class="world-row"><span>04</span><div><h3>Bilinmez Labirent</h3><p>Geri döndüğünde aynı yeri bulabilecek misin?</p></div><svg><use href="#i-arrow"/></svg></div><div class="world-row"><span>05</span><div><h3>Amazon Ormanları</h3><p>Her yeşil, yaşam demek değil.</p></div><svg><use href="#i-arrow"/></svg></div><div class="world-row"><span>06</span><div><h3>Mısır Piramitleri</h3><p>Bazı kapılar binlerce yıldır bir sebeple kapalı.</p></div><svg><use href="#i-arrow"/></svg></div></div>
+        <div class="story-image"><img src="well_done2.jpg"
+            alt="Sisli bir geçitten uzak bir yerleşime doğru yürüyen hayatta kalan" width="828" height="1792"
+            loading="lazy">
+          <div class="image-caption"><span>HER YOL BİR YERE ÇIKAR.</span><strong>Hepsi çıkışa değil.</strong></div>
+        </div>
+        <div class="world-list">
+          <p class="eyebrow">ALTI ATMOSFER. SAYISIZ OLASILIK.</p>
+          <div class="world-row"><span>01</span>
+            <div>
+              <h3>Karanlık Orman</h3>
+              <p>Ağaçların arasında yalnız olduğunu sanma.</p>
+            </div><svg>
+              <use href="#i-arrow" />
+            </svg>
+          </div>
+          <div class="world-row"><span>02</span>
+            <div>
+              <h3>Terk Edilmiş Şehir</h3>
+              <p>Boş sokaklar, kapalı kapılar, cevapsız sesler.</p>
+            </div><svg>
+              <use href="#i-arrow" />
+            </svg>
+          </div>
+          <div class="world-row"><span>03</span>
+            <div>
+              <h3>Araba Mezarlığı</h3>
+              <p>Pas ve sis arasında hâlâ çalışan bir şey var.</p>
+            </div><svg>
+              <use href="#i-arrow" />
+            </svg>
+          </div>
+          <div class="world-row"><span>04</span>
+            <div>
+              <h3>Bilinmez Labirent</h3>
+              <p>Geri döndüğünde aynı yeri bulabilecek misin?</p>
+            </div><svg>
+              <use href="#i-arrow" />
+            </svg>
+          </div>
+          <div class="world-row"><span>05</span>
+            <div>
+              <h3>Amazon Ormanları</h3>
+              <p>Her yeşil, yaşam demek değil.</p>
+            </div><svg>
+              <use href="#i-arrow" />
+            </svg>
+          </div>
+          <div class="world-row"><span>06</span>
+            <div>
+              <h3>Mısır Piramitleri</h3>
+              <p>Bazı kapılar binlerce yıldır bir sebeple kapalı.</p>
+            </div><svg>
+              <use href="#i-arrow" />
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="characters-section section-shell" id="karakterler" aria-labelledby="characters-title">
       <div class="section-label reveal"><span>02 / KARAKTERLER</span><span>AYNI KARANLIK. FARKLI İÇGÜDÜLER.</span></div>
-      <div class="section-heading reveal"><h2 class="display-title" id="characters-title">KİM OLARAK<br><span>HAYATTA KALACAKSIN?</span></h2><p>Dayanıklılık mı, sezgi mi, sessiz bir adım mı?<br>Karakterin sadece adın değil; oyun biçimin.</p></div>
+      <div class="section-heading reveal">
+        <h2 class="display-title" id="characters-title">KİM OLARAK<br><span>HAYATTA KALACAKSIN?</span></h2>
+        <p>Dayanıklılık mı, sezgi mi, sessiz bir adım mı?<br>Karakterin sadece adın değil; oyun biçimin.</p>
+      </div>
       <div class="character-workbench reveal">
-        <article class="character-profile" aria-live="polite" aria-atomic="true"><div class="profile-top"><span id="character-number">DOSYA / 01</span><span id="character-unlock">BAŞLANGIÇTA AÇIK</span></div><div class="character-seal" aria-hidden="true"><span class="seal-ring"></span><svg id="character-symbol"><use href="#i-heart"/></svg><span class="seal-cross a">+</span><span class="seal-cross b">+</span></div><div class="profile-bottom"><span class="eyebrow">HAYATTA KALAN</span><h3 id="character-name">Adam</h3><p id="character-description">Dayanıklı bir beden. Biraz daha fazla canla başlar.</p><div class="character-ability"><span>PASİF YETENEK</span><strong id="character-ability">+10 başlangıç canı</strong></div></div></article>
-        <div class="character-directory"><div class="character-filters" role="group" aria-label="Karakter grubu"><button class="active" type="button" data-filter="all" aria-pressed="true">Tümü <span>15</span></button><button type="button" data-filter="level" aria-pressed="false">Seviyeyle açılan</button><button type="button" data-filter="premium" aria-pressed="false">Özel karakterler</button></div><div class="character-grid" id="character-grid" role="group" aria-label="Karakter seçimi"></div><noscript><p>15 karakter: Adam, Kadın, Hain, Suçlu, Asker, Avcı, Şaman, Çocuk, Yaşlı, Hayalet, Titan, Gölge, İzci, Sıhhiyeci ve Kâhin. Karakter özelliklerini keşfetmek için JavaScript'i etkinleştir.</p></noscript><div class="character-footnote"><span class="status-dot"></span><p>Adam ve Kadın başlangıçta açık. Sekiz karakter seviye ile, beş özel karakter ayrı satın almayla açılır. <strong>Satın alma zorunlu değil.</strong></p></div></div>
+        <article class="character-profile" aria-live="polite" aria-atomic="true">
+          <div class="profile-top"><span id="character-number">DOSYA / 01</span><span id="character-unlock">BAŞLANGIÇTA
+              AÇIK</span></div>
+          <div class="character-seal" aria-hidden="true"><span class="seal-ring"></span><svg id="character-symbol">
+              <use href="#i-heart" />
+            </svg><span class="seal-cross a">+</span><span class="seal-cross b">+</span></div>
+          <div class="profile-bottom"><span class="eyebrow">HAYATTA KALAN</span>
+            <h3 id="character-name">Adam</h3>
+            <p id="character-description">Dayanıklı bir beden. Biraz daha fazla canla başlar.</p>
+            <div class="character-ability"><span>PASİF YETENEK</span><strong id="character-ability">+10 başlangıç
+                canı</strong></div>
+          </div>
+        </article>
+        <div class="character-directory">
+          <div class="character-filters" role="group" aria-label="Karakter grubu"><button class="active" type="button"
+              data-filter="all" aria-pressed="true">Tümü <span>15</span></button><button type="button"
+              data-filter="level" aria-pressed="false">Seviyeyle açılan</button><button type="button"
+              data-filter="premium" aria-pressed="false">Özel karakterler</button></div>
+          <div class="character-grid" id="character-grid" role="group" aria-label="Karakter seçimi"></div><noscript>
+            <p>15 karakter: Adam, Kadın, Hain, Suçlu, Asker, Avcı, Şaman, Çocuk, Yaşlı, Hayalet, Titan, Gölge, İzci,
+              Sıhhiyeci ve Kâhin. Karakter özelliklerini keşfetmek için JavaScript'i etkinleştir.</p>
+          </noscript>
+          <div class="character-footnote"><span class="status-dot"></span>
+            <p>Adam ve Kadın başlangıçta açık. Sekiz karakter seviye ile, beş özel karakter ayrı satın almayla açılır.
+              <strong>Satın alma zorunlu değil.</strong></p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="how-section section-shell" id="nasil-oynanir" aria-labelledby="how-title">
       <div class="section-label reveal"><span>03 / OYUNUN KURALLARI</span><span>BİLMEK, YAŞAMA ŞANSIDIR.</span></div>
       <h2 class="display-title reveal" id="how-title">OKU. KARAR VER.<br><span>SONUCUNA KATLAN.</span></h2>
-      <div class="rules-row reveal"><article><span class="rule-number">01</span><h3>Gününü seç.</h3><p>Takvimdeki yayımlanmış bir hikâyeye gir. Gün, tüm oyuncular için Türkiye saatiyle gece yarısında değişir.</p></article><article><span class="rule-number">02</span><h3>Kaynaklarını koru.</h3><p>Her adım enerji tüketir; tehlikeli kararlar canını azaltabilir. Can ve enerji veren eşyaları envanterden kullan.</p></article><article><span class="rule-number">03</span><h3>Çıkışını bul.</h3><p>Bir sonraki numaraya ulaşmak değil, doğru kaçış yolunu bulmak önemli. Yanlış yol seni çok daha erken sona götürebilir.</p></article></div>
-      <div class="risk-layout reveal"><div class="risk-copy"><span class="eyebrow">GÖRÜNMEYEN BİR DÜŞMAN: ZAMAN</span><h3>BEKLEDİKÇE<br>YALNIZLIĞIN <em>AZALIR.</em></h3><p>Oyun açıkken her 10 saniyede bir risk yükselir. Daha yüksek risk, daha fazla enerji maliyeti ve daha düşük başarı şansı demek. Kritik seviyede beklemek ölümle sonuçlanabilir.</p><p>Yeni bir sahneye geçmek riski genellikle azaltır; bazı sahneler tehlikeyi korur veya farklı miktarda düşürür. <strong>Envanter açıkken ve oyun arka plandayken süre durur.</strong></p></div><div class="risk-lab"><div class="lab-head"><span>TEHDİT GÖSTERGESİ</span><span>ETKİLEŞİMLİ ÖRNEK</span></div><div class="risk-value"><span id="risk-value">02</span><span>/ 05<small id="risk-status">SESİ DUYDUN MU?</small></span></div><div class="risk-segments" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><p id="risk-message" aria-live="polite">Tehlike yaklaşıyor. Hareketsiz kalmak riski artırır.</p><div class="lab-controls"><button type="button" id="risk-wait">Bekle <span>+1</span></button><button type="button" id="risk-advance">İlerle <span>−1</span></button></div><button class="inventory-toggle" id="inventory-toggle" type="button" aria-pressed="false">ENVANTERİ AÇ <span>↗</span></button><span class="lab-note">Bu gösterge yalnızca kuralları anlatır; canlı oyun değildir.</span></div></div>
-      <div class="play-notes reveal"><article><svg><use href="#i-heart"/></svg><h3>Canın, son çizgin.</h3><p>Can sıfırlanınca oyun biter. Bazı hikâye seçimleri, kalan canından bağımsız olarak ölümcül olabilir.</p></article><article><svg><use href="#i-fire"/></svg><h3>Bir ihtimal daha.</h3><p>Enerji tükendiğinde deneme başına bir kez reklamla veya bir meşale hakkıyla devam edebilirsin. Meşale paketi 5 kullanım verir; hikâye ölümünü geri almaz.</p></article><article><svg><use href="#i-spark"/></svg><h3>Her kaçış bir deneyim.</h3><p>Günlük bölümün ilk galibiyeti normalde 2, zor modda 3 XP verir. Her 10 XP bir seviye; yeni seviyeler yeni karakterler demek.</p></article></div>
+      <div class="rules-row reveal">
+        <article><span class="rule-number">01</span>
+          <h3>Gününü seç.</h3>
+          <p>Takvimdeki yayımlanmış bir hikâyeye gir. Gün, tüm oyuncular için Türkiye saatiyle gece yarısında değişir.
+          </p>
+        </article>
+        <article><span class="rule-number">02</span>
+          <h3>Kaynaklarını koru.</h3>
+          <p>Her adım enerji tüketir; tehlikeli kararlar canını azaltabilir. Can ve enerji veren eşyaları envanterden
+            kullan.</p>
+        </article>
+        <article><span class="rule-number">03</span>
+          <h3>Çıkışını bul.</h3>
+          <p>Bir sonraki numaraya ulaşmak değil, doğru kaçış yolunu bulmak önemli. Yanlış yol seni çok daha erken sona
+            götürebilir.</p>
+        </article>
+      </div>
+      <div class="risk-layout reveal">
+        <div class="risk-copy"><span class="eyebrow">GÖRÜNMEYEN BİR DÜŞMAN: ZAMAN</span>
+          <h3>BEKLEDİKÇE<br>YALNIZLIĞIN <em>AZALIR.</em></h3>
+          <p>Oyun açıkken her 10 saniyede bir risk yükselir. Daha yüksek risk, daha fazla enerji maliyeti ve daha düşük
+            başarı şansı demek. Kritik seviyede beklemek ölümle sonuçlanabilir.</p>
+          <p>Yeni bir sahneye geçmek riski genellikle azaltır; bazı sahneler tehlikeyi korur veya farklı miktarda
+            düşürür. <strong>Envanter açıkken ve oyun arka plandayken süre durur.</strong></p>
+        </div>
+        <div class="risk-lab">
+          <div class="lab-head"><span>TEHDİT GÖSTERGESİ</span><span>ETKİLEŞİMLİ ÖRNEK</span></div>
+          <div class="risk-value"><span id="risk-value">02</span><span>/ 05<small id="risk-status">SESİ DUYDUN
+                MU?</small></span></div>
+          <div class="risk-segments" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <p id="risk-message" aria-live="polite">Tehlike yaklaşıyor. Hareketsiz kalmak riski artırır.</p>
+          <div class="lab-controls"><button type="button" id="risk-wait">Bekle <span>+1</span></button><button
+              type="button" id="risk-advance">İlerle <span>−1</span></button></div><button class="inventory-toggle"
+            id="inventory-toggle" type="button" aria-pressed="false">ENVANTERİ AÇ <span>↗</span></button><span
+            class="lab-note">Bu gösterge yalnızca kuralları anlatır; canlı oyun değildir.</span>
+        </div>
+      </div>
+      <div class="play-notes reveal">
+        <article><svg>
+            <use href="#i-heart" />
+          </svg>
+          <h3>Canın, son çizgin.</h3>
+          <p>Can sıfırlanınca oyun biter. Bazı hikâye seçimleri, kalan canından bağımsız olarak ölümcül olabilir.</p>
+        </article>
+        <article><svg>
+            <use href="#i-fire" />
+          </svg>
+          <h3>Bir ihtimal daha.</h3>
+          <p>Enerji tükendiğinde deneme başına bir kez reklamla veya bir meşale hakkıyla devam edebilirsin. Meşale
+            paketi 5 kullanım verir; hikâye ölümünü geri almaz.</p>
+        </article>
+        <article><svg>
+            <use href="#i-spark" />
+          </svg>
+          <h3>Her kaçış bir deneyim.</h3>
+          <p>Günlük bölümün ilk galibiyeti normalde 2, zor modda 3 XP verir. Her 10 XP bir seviye; yeni seviyeler yeni
+            karakterler demek.</p>
+        </article>
+      </div>
     </section>
 
     <section class="routes-section section-shell" aria-labelledby="routes-title">
       <div class="section-label reveal"><span>04 / OLASILIKLAR</span><span>HİKÂYE BİR DÜZ ÇİZGİ DEĞİL.</span></div>
-      <div class="routes-layout"><div class="calendar-preview reveal"><div class="calendar-heading"><span>KASIM / 2026</span><svg><use href="#i-compass"/></svg></div><div class="calendar-week" aria-hidden="true"><span>PT</span><span>SA</span><span>ÇA</span><span>PE</span><span>CU</span><span>CT</span><span>PZ</span></div><div class="calendar-days" id="calendar-preview" aria-hidden="true"></div><div class="calendar-caption"><span class="status-dot"></span>HER TARİHİN KENDİ HİKÂYESİ VAR.</div></div><div class="routes-copy reveal"><h2 class="display-title" id="routes-title">AYNI TARİH.<br><span>BAŞKA BİR YOL.</span></h2><p>Takvimdeki atmosferler tarihe göre çeşitlenir. Bir gün ormanın içindeyken, başka bir gün bir piramidin kapısında bulursun kendini. Yayımlanan aynı tarihli hikâye değişmez; takvimi her açtığında yeniden çekilmez.</p><p>Yeni bir denemede seçeneklerin sırası ve görünür olan yollar değişebilir. Karakterin ve taşıdığın eşyalar da önüne çıkan seçenekleri etkiler. Yüzdeli şans atışlarında aynı cevabın aynı sonucu vermesi garanti değildir.</p></div></div>
-      <div class="branching-path reveal"><div class="path-description"><span class="eyebrow">BİR ROTA ÖRNEĞİ</span><h3>03'ten sonra<br>04 gelmek zorunda değil.</h3></div><div class="path-nodes" aria-label="Örnek rota: adım 3, adım 11, adım 24, kaçış"><span>03<small>KARAR</small></span><i>↗</i><span>11<small>YENİ SAHNE</small></span><i>↘</i><span>24<small>SON İHTİMAL</small></span><i>→</i><span class="exit-node"><svg><use href="#i-arrow"/></svg><small>KAÇIŞ</small></span></div></div>
-      <p class="route-footnote reveal">Seçimler birden fazla adımı atlayabilir, farklı bir dala açılabilir veya hikâyeyi bitirebilir. Seçenek numarası bir sonraki bölüm numarası değildir.</p>
+      <div class="routes-layout">
+        <div class="calendar-preview reveal">
+          <div class="calendar-heading"><span>KASIM / 2026</span><svg>
+              <use href="#i-compass" />
+            </svg></div>
+          <div class="calendar-week" aria-hidden="true">
+            <span>PT</span><span>SA</span><span>ÇA</span><span>PE</span><span>CU</span><span>CT</span><span>PZ</span>
+          </div>
+          <div class="calendar-days" id="calendar-preview" aria-hidden="true"></div>
+          <div class="calendar-caption"><span class="status-dot"></span>HER TARİHİN KENDİ HİKÂYESİ VAR.</div>
+        </div>
+        <div class="routes-copy reveal">
+          <h2 class="display-title" id="routes-title">AYNI TARİH.<br><span>BAŞKA BİR YOL.</span></h2>
+          <p>Takvimdeki atmosferler tarihe göre çeşitlenir. Bir gün ormanın içindeyken, başka bir gün bir piramidin
+            kapısında bulursun kendini. Yayımlanan aynı tarihli hikâye değişmez; takvimi her açtığında yeniden çekilmez.
+          </p>
+          <p>Yeni bir denemede seçeneklerin sırası ve görünür olan yollar değişebilir. Karakterin ve taşıdığın eşyalar
+            da önüne çıkan seçenekleri etkiler. Yüzdeli şans atışlarında aynı cevabın aynı sonucu vermesi garanti
+            değildir.</p>
+        </div>
+      </div>
+      <div class="branching-path reveal">
+        <div class="path-description"><span class="eyebrow">BİR ROTA ÖRNEĞİ</span>
+          <h3>03'ten sonra<br>04 gelmek zorunda değil.</h3>
+        </div>
+        <div class="path-nodes" aria-label="Örnek rota: adım 3, adım 11, adım 24, kaçış">
+          <span>03<small>KARAR</small></span><i>↗</i><span>11<small>YENİ SAHNE</small></span><i>↘</i><span>24<small>SON
+              İHTİMAL</small></span><i>→</i><span class="exit-node"><svg>
+              <use href="#i-arrow" />
+            </svg><small>KAÇIŞ</small></span></div>
+      </div>
+      <p class="route-footnote reveal">Seçimler birden fazla adımı atlayabilir, farklı bir dala açılabilir veya hikâyeyi
+        bitirebilir. Seçenek numarası bir sonraki bölüm numarası değildir.</p>
     </section>
 
-    <section class="faq-section section-shell" aria-labelledby="details-title"><div class="section-label reveal"><span>05 / YOLA ÇIKMADAN</span><span>KÜÇÜK AMA HAYATİ DETAYLAR.</span></div><div class="faq-layout"><h2 class="display-title reveal" id="details-title">AKLINDA<br><span>KALMASIN.</span></h2><div class="faq-list reveal"><details><summary>Bir günün bölümünü kaçırırsam ne olur?<span>+</span></summary><p>O günün yayımlanmış bölümüne Türkiye saatiyle 23:59:59'a kadar girersen erişimin korunur. Hiç girmediğin geçmiş günler kilitlenir; tamamladığın ödüllü reklamla açabilirsin. Reklamları Kaldır satın alımı yayımlanmış geçmiş günlere reklamsız erişim sağlar; gelecek günleri erkenden açmaz.</p></details><details><summary>Zor mod gerçekten daha zor mu?<span>+</span></summary><p>Evet. Şans atışlarına 15 yüzde puanı ceza, alınan hasara %60 artış ve adım başına 5 ek enerji maliyeti uygulanır. Karakter etkileri ve yuvarlama sonuçları değiştirebilir. Zor modu satın aldıktan sonra açıp kapatabilirsin; tercihin yeni oyun denemesinde uygulanır.</p></details><details><summary>Aynı bölümü tekrar kazanarak XP toplayabilir miyim?<span>+</span></summary><p>Bir tarihin yalnız ilk galibiyeti XP verir. Yeniden oynamak yeni yolları görmek için bir fırsattır; aynı günlük hikâyeden tekrar XP kazanılmaz.</p></details><details><summary>Özel karakterleri almak zorunda mıyım?<span>+</span></summary><p>Hayır. İki başlangıç karakteri ve seviyeyle açılan sekiz karakter bulunur. Beş özel karakter ayrı satın alımlardır. Kalıcı karakter haklarıyla beş kullanımlık tüketilebilir meşale paketi farklı ürünlerdir.</p></details><details><summary>Oyunu ne zaman indirebilirim?<span>+</span></summary><p>Mobil sürümler hazırlanıyor. Google Play ve App Store bağlantıları hazır olduğunda bu sayfaya eklenecek. Şu an mağaza kartları indirme başlatmaz.</p></details></div></div></section>
+    <section class="faq-section section-shell" aria-labelledby="details-title">
+      <div class="section-label reveal"><span>05 / YOLA ÇIKMADAN</span><span>KÜÇÜK AMA HAYATİ DETAYLAR.</span></div>
+      <div class="faq-layout">
+        <h2 class="display-title reveal" id="details-title">AKLINDA<br><span>KALMASIN.</span></h2>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Bir günün bölümünü kaçırırsam ne olur?<span>+</span></summary>
+            <p>O günün yayımlanmış bölümüne Türkiye saatiyle 23:59:59'a kadar girersen erişimin korunur. Hiç girmediğin
+              geçmiş günler kilitlenir; tamamladığın ödüllü reklamla açabilirsin. Reklamları Kaldır satın alımı
+              yayımlanmış geçmiş günlere reklamsız erişim sağlar; gelecek günleri erkenden açmaz.</p>
+          </details>
+          <details>
+            <summary>Zor mod gerçekten daha zor mu?<span>+</span></summary>
+            <p>Evet. Şans atışlarına 15 yüzde puanı ceza, alınan hasara %60 artış ve adım başına 5 ek enerji maliyeti
+              uygulanır. Karakter etkileri ve yuvarlama sonuçları değiştirebilir. Zor modu satın aldıktan sonra açıp
+              kapatabilirsin; tercihin yeni oyun denemesinde uygulanır.</p>
+          </details>
+          <details>
+            <summary>Aynı bölümü tekrar kazanarak XP toplayabilir miyim?<span>+</span></summary>
+            <p>Bir tarihin yalnız ilk galibiyeti XP verir. Yeniden oynamak yeni yolları görmek için bir fırsattır; aynı
+              günlük hikâyeden tekrar XP kazanılmaz.</p>
+          </details>
+          <details>
+            <summary>Özel karakterleri almak zorunda mıyım?<span>+</span></summary>
+            <p>Hayır. İki başlangıç karakteri ve seviyeyle açılan sekiz karakter bulunur. Beş özel karakter ayrı satın
+              alımlardır. Kalıcı karakter haklarıyla beş kullanımlık tüketilebilir meşale paketi farklı ürünlerdir.</p>
+          </details>
+          <details>
+            <summary>Oyunu ne zaman indirebilirim?<span>+</span></summary>
+            <p>Mobil sürümler hazırlanıyor. Google Play ve App Store bağlantıları hazır olduğunda bu sayfaya eklenecek.
+              Şu an mağaza kartları indirme başlatmaz.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-    <section class="tech-section section-shell" id="teknoloji" aria-labelledby="tech-title"><div class="section-label reveal"><span>06 / MERAKLISINA</span><span>KARANLIĞIN ARKASINDAKİ KOD.</span></div><div class="section-heading reveal"><h2 class="display-title" id="tech-title">HİKÂYE KADAR<br><span>ALTYAPISI DA VAR.</span></h2><p>Bir kararın ekranda görünmesinden<br>bir sonraki sahneye kadar.</p></div><div class="tech-list reveal"><div><span>01</span><h3>React Native <b>+ Expo</b></h3><p>React Native ve Expo ile geliştirilen ortak Android/iOS kod tabanı.</p><small>MOBİL</small></div><div><span>02</span><h3>TypeScript <b>+ Zustand</b></h3><p>TypeScript oyun mantığı, Zustand durum yönetimi ve cihazda yerel kayıt.</p><small>OYUN MANTIĞI</small></div><div><span>03</span><h3>Gemini <b>+ doğrulama</b></h3><p>Üretilen hikâyeler için şema ve rota kontrolleri.</p><small>HİKÂYE ÜRETİMİ</small></div><div><span>04</span><h3>Node.js <b>+ Express</b></h3><p>Prisma veri katmanı ve Docker yapılandırması bulunan sunucu kodu.</p><small>SUNUCU</small></div><div><span>05</span><h3>RevenueCat <b>+ AdMob</b></h3><p>RevenueCat satın alma entegrasyonu, Google AdMob ödüllü reklamları.</p><small>MOBİL SERVİSLER</small></div></div></section>
+    <section class="tech-section section-shell" id="teknoloji" aria-labelledby="tech-title">
+      <div class="section-label reveal"><span>06 / MERAKLISINA</span><span>KARANLIĞIN ARKASINDAKİ KOD.</span></div>
+      <div class="section-heading reveal">
+        <h2 class="display-title" id="tech-title">HİKÂYE KADAR<br><span>ALTYAPISI DA VAR.</span></h2>
+        <p>Bir kararın ekranda görünmesinden<br>bir sonraki sahneye kadar.</p>
+      </div>
+      <div class="tech-list reveal">
+        <div><span>01</span>
+          <h3>React Native <b>+ Expo</b></h3>
+          <p>React Native ve Expo ile geliştirilen ortak Android/iOS kod tabanı.</p><small>MOBİL</small>
+        </div>
+        <div><span>02</span>
+          <h3>TypeScript <b>+ Zustand</b></h3>
+          <p>TypeScript oyun mantığı, Zustand durum yönetimi ve cihazda yerel kayıt.</p><small>OYUN MANTIĞI</small>
+        </div>
+        <div><span>03</span>
+          <h3>Gemini <b>+ doğrulama</b></h3>
+          <p>Üretilen hikâyeler için şema ve rota kontrolleri.</p><small>HİKÂYE ÜRETİMİ</small>
+        </div>
+        <div><span>04</span>
+          <h3>Node.js <b>+ Express</b></h3>
+          <p>Prisma veri katmanı ve Docker yapılandırması bulunan sunucu kodu.</p><small>SUNUCU</small>
+        </div>
+        <div><span>05</span>
+          <h3>RevenueCat <b>+ AdMob</b></h3>
+          <p>RevenueCat satın alma entegrasyonu, Google AdMob ödüllü reklamları.</p><small>MOBİL SERVİSLER</small>
+        </div>
+      </div>
+    </section>
 
-    <section class="closing-section section-shell reveal"><span class="eyebrow">BİR SONRAKİ GÜNE ULAŞABİLECEK MİSİN?</span><h2>SON SÖZÜ<br><em>KARANLIĞA BIRAKMA.</em></h2><a class="text-link" href="#indir">MOBİLDE YAKINDA <svg><use href="#i-arrow"/></svg></a></section>
+    <section class="closing-section section-shell reveal"><span class="eyebrow">BİR SONRAKİ GÜNE ULAŞABİLECEK
+        MİSİN?</span>
+      <h2>SON SÖZÜ<br><em>KARANLIĞA BIRAKMA.</em></h2><a class="text-link" href="#indir">MOBİLDE YAKINDA <svg>
+          <use href="#i-arrow" />
+        </svg></a>
+    </section>
 
     <section class="contact-section section-shell" id="iletisim" aria-labelledby="contact-title">
-      <div class="section-label reveal"><span>07 / YARATICI & İLETİŞİM</span><span>BİR FİKİRDEN BİR DÜNYAYA.</span></div>
-      <div class="contact-intro reveal"><h2 class="display-title" id="contact-title">BİR OYUN.<br><span>TEK BİR YARATICI.</span></h2><div><span class="eyebrow">BAĞIMSIZ BİR ÜRETİM</span><h3>brahim <small>İbrahim Mesut Yılmaz</small></h3><p>Ben brahim; Hayatta Kal’ın fikir sahibi, yaratıcısı ve geliştiricisiyim. Oyunun tasarımını, geliştirmesini ve görsel üretimin yönetimini üstleniyorum. Günlük hikâye üretme motorunda incetarik, sunucu desteğinde mikail katkı sağlıyor.</p><a class="contact-email" href="mailto:survive.support@gmail.com">survive.support@gmail.com</a></div></div>
-      <div class="creator-ledger reveal"><div class="creator-signature"><span class="eyebrow">YARATICI & KATKIDA BULUNANLAR.</span><strong>brahim<span>.</span></strong><p>Bir fikir, birçok emek.</p></div><div class="creator-roles"><article><h3>Fikir & yaratım</h3><strong class="role-credit">brahim</strong><p>Oyunun fikri, dünyası ve yaratıcı yönü.</p></article><article><h3>Kod & geliştirme</h3><strong class="role-credit">brahim</strong><p>Oyun mekanikleri, mobil deneyim ve teknik geliştirme.</p></article><article><h3>Hikâye & oyun tasarımı</h3><strong class="role-credit">brahim</strong><p>Karakterler, seçimler ve hayatta kalma kuralları.</p></article><article><h3>Görsel üretim & sanat yönü</h3><strong class="role-credit">brahim</strong><p>Görsellerin hazırlatılması, seçimi ve uyarlanması.</p></article><article><h3>Üretim & yayın</h3><strong class="role-credit">brahim</strong><p>Test, içerik akışı ve mağaza hazırlıkları.</p></article><article><h3>Web & iletişim</h3><strong class="role-credit">brahim</strong><p>Site tasarımı, geliştirme ve oyuncu iletişimi.</p></article><article><h3>Günlük hikâye üretme motoru</h3><strong class="role-credit">incetarik</strong><p>Günlük hikâye üretme motoruna katkı.</p></article><article><h3>Sunucu desteği</h3><strong class="role-credit">mikail</strong><p>Oyunun sunucu altyapısına destek.</p></article></div></div>
+      <div class="section-label reveal"><span>07 / YARATICI & İLETİŞİM</span><span>BİR FİKİRDEN BİR DÜNYAYA.</span>
+      </div>
+      <div class="contact-intro reveal">
+        <h2 class="display-title" id="contact-title">BİR OYUN.<br><span>TEK BİR YARATICI.</span></h2>
+        <div><span class="eyebrow">BAĞIMSIZ BİR ÜRETİM</span>
+          <h3>brahim <small>İbrahim Mesut Yılmaz</small></h3>
+          <p>Ben brahim; Hayatta Kal’ın fikir sahibi, yaratıcısı ve geliştiricisiyim. Oyunun tasarımını, geliştirmesini
+            ve görsel üretimin yönetimini üstleniyorum. Günlük hikâye üretme motorunda incetarik, sunucu desteğinde
+            chgmikail katkı sağlıyor.</p><a class="contact-email"
+            href="mailto:survive.support@gmail.com">survive.support@gmail.com</a>
+        </div>
+      </div>
+      <div class="creator-ledger reveal">
+        <div class="creator-signature"><span class="eyebrow">YARATICI & KATKIDA
+            BULUNANLAR.</span><strong>brahim<span>.</span></strong>
+          <p>Bir fikir, birçok emek.</p>
+        </div>
+        <div class="creator-roles">
+          <article>
+            <h3>Fikir & yaratım</h3><strong class="role-credit">brahim</strong>
+            <p>Oyunun fikri, dünyası ve yaratıcı yönü.</p>
+          </article>
+          <article>
+            <h3>Kod & geliştirme</h3><strong class="role-credit">brahim</strong>
+            <p>Oyun mekanikleri, mobil deneyim ve teknik geliştirme.</p>
+          </article>
+          <article>
+            <h3>Hikâye & oyun tasarımı</h3><strong class="role-credit">brahim</strong>
+            <p>Karakterler, seçimler ve hayatta kalma kuralları.</p>
+          </article>
+          <article>
+            <h3>Görsel üretim & sanat yönü</h3><strong class="role-credit">brahim</strong>
+            <p>Görsellerin hazırlatılması, seçimi ve uyarlanması.</p>
+          </article>
+          <article>
+            <h3>Üretim & yayın</h3><strong class="role-credit">brahim</strong>
+            <p>Test, içerik akışı ve mağaza hazırlıkları.</p>
+          </article>
+          <article>
+            <h3>Web & iletişim</h3><strong class="role-credit">brahim</strong>
+            <p>Site tasarımı, geliştirme ve oyuncu iletişimi.</p>
+          </article>
+          <article>
+            <h3>Günlük hikâye üretme motoru</h3><strong class="role-credit">incetarik</strong>
+            <p>Günlük hikâye üretme motoruna katkı.</p>
+          </article>
+          <article>
+            <h3>Sunucu desteği</h3><strong class="role-credit">chgmikail</strong>
+            <p>Oyunun sunucu altyapısına destek.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="thanks-section section-shell" id="tesekkurler" aria-labelledby="thanks-title">
-      <div class="thanks-inner reveal"><span class="eyebrow">BU YOLCULUKTA İZİ OLANLARA.</span><h2 class="display-title" id="thanks-title">KATKILARINIZ İÇİN<br><span>TEŞEKKÜRLER.</span></h2><p>Hayatta Kal’a katkılarından dolayı:</p><div class="thanks-names"><div><span class="thanks-mark" aria-hidden="true">✳</span><strong>@incetarik</strong></div><div><span class="thanks-mark" aria-hidden="true">✳</span><strong>@mikail</strong></div></div></div>
+      <div class="thanks-inner reveal"><span class="eyebrow">BU YOLCULUKTA İZİ OLANLARA.</span>
+        <h2 class="display-title" id="thanks-title">KATKILARINIZ İÇİN<br><span>TEŞEKKÜRLER.</span></h2>
+        <p>Hayatta Kal’a katkılarından dolayı:</p>
+        <div class="thanks-names">
+          <div><span class="thanks-mark" aria-hidden="true">✳</span><strong>@incetarik</strong></div>
+          <div><span class="thanks-mark" aria-hidden="true">✳</span><strong>@chgmikail</strong></div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="site-footer section-shell"><a class="brand" href="#baslangic"><svg class="brand-heart"><use href="#i-heart"/></svg><span>HAYATTA KAL</span></a><span class="copyright">© <span id="copyright-year">2026</span> Hayatta Kal · Tüm hakları saklıdır.</span><button class="privacy-trigger" data-legal-target="privacy" type="button" aria-haspopup="dialog">Gizlilik</button><button class="privacy-trigger kvkk-trigger" data-legal-target="kvkk" type="button" aria-haspopup="dialog">KVKK</button><span class="site-credit"><strong>by Brahim</strong></span></footer>
+  <footer class="site-footer section-shell"><a class="brand" href="#baslangic"><svg class="brand-heart">
+        <use href="#i-heart" />
+      </svg><span>HAYATTA KAL</span></a><span class="copyright">© <span id="copyright-year">2026</span> Hayatta Kal ·
+      Tüm hakları saklıdır.</span><button class="privacy-trigger" data-legal-target="privacy" type="button"
+      aria-haspopup="dialog">Gizlilik</button><button class="privacy-trigger kvkk-trigger" data-legal-target="kvkk"
+      type="button" aria-haspopup="dialog">KVKK</button><span class="site-credit"><strong>by Brahim</strong></span>
+  </footer>
 
-  <dialog class="privacy-modal privacy-modal" data-legal-modal="privacy" aria-labelledby="privacy-title"><div class="privacy-toolbar"><span class="eyebrow">HAYATTA KAL / GİZLİLİK</span><button class="drawer-close legal-close" type="button" aria-label="Gizlilik Politikası penceresini kapat"><span></span><span></span></button></div><div class="privacy-content">
+  <dialog class="privacy-modal privacy-modal" data-legal-modal="privacy" aria-labelledby="privacy-title">
+    <div class="privacy-toolbar"><span class="eyebrow">HAYATTA KAL / GİZLİLİK</span><button
+        class="drawer-close legal-close" type="button"
+        aria-label="Gizlilik Politikası penceresini kapat"><span></span><span></span></button></div>
+    <div class="privacy-content">
 
-  <h2 id="privacy-title">Gizlilik Politikası</h2>
-  <p class="date">Son güncelleme: 18 Kasım 2026</p>
-  <p>Bu politika, İbrahim Mesut Yılmaz tarafından sunulan Hayatta Kal tanıtım sitesinin ve cihaz içi kayıt kullanan mobil oyunun veri kullanımını açıklar. Gizlilik ve destek iletişimi: <a href="mailto:survive.support@gmail.com">survive.support@gmail.com</a>.</p>
-
-
-  <h3>Tanıtım sitesi, çerezler ve dış bağlantılar</h3>
-  <p>Tanıtım sitesinin mevcut sürümünde üyelik, iletişim formu, reklam SDK’sı, ziyaretçi analiz kodu, pazarlama çerezi veya tarayıcıda izleme amaçlı yerel depolama bulunmaz. Yazı tipleri ve görseller sitenin kendi dosyalarından yüklenir. Siteyi ziyaret etmek mobil oyunun reklam veya satın alma servislerini çalıştırmaz.</p>
-  <p>Sayfanın iletilmesi ve güvenliği için barındırma altyapısı IP adresi, istek zamanı, istenen sayfa, HTTP sonucu ve tarayıcının ilettiği teknik bilgileri işleyebilir. İletişim bağlantısı kendi e-posta uygulamanı açar; mesajı sen gönderdiğinde e-posta sağlayıcıları da bu iletişimi işler. Dış servislerin bağlantıları, o servise geçtiğinde kendi gizlilik koşullarına tabidir.</p>
-
-  <h3>Oyun kaydı ve günlük içerik</h3>
-  <p>XP, seviye, karakter seçimi, başarımlar, günlük sonuçlar, reklamla açılan günler, meşale kullanım bakiyesi, aynı meşale işleminin tekrar verilmesini engelleyen işlem referansları ve ses tercihleri cihazdaki uygulama alanında saklanır. Mevcut sürümde oyuncu hesabı oluşturma ve geliştirici tarafından sağlanan cihazlar arası bulut kayıt hizmeti yoktur. İşletim sisteminin yedekleme işlevleri cihaz ayarlarına göre ayrıca çalışabilir; bunlar oyun içi bir bulut kayıt hizmeti değildir.</p>
-  <p>Günlük hikâyeler internet üzerinden indirilir. Bu bağlantılar sırasında içerik barındırma sağlayıcısı IP adresi, istek zamanı ve istenen dosya gibi teknik erişim verilerini işleyebilir. Oyun ilerlemesi günlük hikâye indirme isteğine eklenmez. Bu cihaz içi kayıt/CDN sürümünde oyun olayları geliştiricinin ayrı bir analiz API'sine gönderilmez. Kaynak kodunda API ve hesap aktarımı için hazırlıklar bulunması, bu hizmetlerin bu sürümde açık olduğu anlamına gelmez. Sunucu tabanlı kayıt veya olay analizi kullanıma sunulmadan önce veri akışı ve bu metin güncellenir.</p>
-
-  <h3>Ödüllü reklamlar</h3>
-  <p>Yaş veya doğum tarihi sormayız. Bütün oyuncular için genel izleyici (G) reklam içerik sınırı, kişiselleştirilmemiş reklam isteği ve rıza yaşının altındaki kullanıcılar için sunulan kısıtlı veri işleme etiketleri uygulanır. Bunlar reklam içeriği ve veri işlemesini sınırlayan ayarlardır; her reklamın içeriği hakkında mutlak garanti değildir.</p>
-  <p>Kaçırılan geçmiş günleri açmak veya enerji tükendiğinde bir oyun denemesinde en fazla bir kez devam etmek için isteğe bağlı Google AdMob ödüllü reklamları kullanılır. Reklam hizmeti IP adresi ve buna dayanan yaklaşık konum, cihaz/reklam kimlikleri, reklamla etkileşim ve teknik tanı bilgilerini reklam sunma, ölçüm ve kötüye kullanımı önleme amacıyla işleyebilir. Kişiselleştirilmemiş reklam isteği kullanılması bütün teknik veri işlemenin durduğu anlamına gelmez.</p>
-  <p>Reklam isteğinden önce Google'ın izin durumu kontrol edilir. Bu sürümde tüm kullanıcılara uygulanan koruyucu etiketler nedeniyle Google ek izin formu göstermeyebilir. Uygulamanın Ayarlar bölümündeki “Reklam gizlilik seçenekleri” mevcut durumu açıklar ve gerektiğinde sunulan formu açar. İşletim sisteminin reklam gizliliği kontrollerini de kullanabilirsin. Reklamları Kaldır hakkı, yayımlanmış geçmiş günlere reklam izlemeden erişim sağlar.</p>
-  <p>Kişiselleştirilmemiş reklam veya Google izin formunun gösterilmemesi, tek başına KVKK kapsamında açık rıza alındığı anlamına gelmez. Rıza gerektiren veri işleme için ayrıca geçerli bir tercih mekanizması gerekir.</p>
-  <p>Google'ın veri kullanımı: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a> ve <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">iş ortağı uygulamalarından gelen bilgiler</a>.</p>
-
-  <h3>Satın alımlar</h3>
-  <p>Reklam kaldırma, zor mod ve karakterler kalıcı satın alma haklarıdır; iade veya hakkın iptali durumunda kaldırılabilirler. Meşale paketi ise beş kullanım veren tüketilebilir bir üründür. Mevcut cihaz içi kayıt yapısında kullanılmış veya kalan meşale haklarının uygulama verileri silindikten ya da cihaz değiştirildikten sonra geri yüklenmesi garanti edilmez.</p>
-  <p>Ödemeler Android'de Google Play, iOS'ta Apple App Store tarafından yürütülür. Kart bilgileri oyun tarafından alınmaz. Satın alma haklarını doğrulamak ve geri yüklemek için RevenueCat kullanılır. Bu hizmet satın alma geçmişini, işlem ve ürün referanslarını, uygulamaya ait müşteri kimliğini ve doğrulama için gerekli teknik bilgileri işler. Oyunda ad, telefon veya e-posta adresini RevenueCat müşteri özelliği olarak toplamayız.</p>
-  <p>Satın alma kayıtları, hakların doğrulanması ve geri yüklenmesi için saklanır. Oyun verilerini silmek mağaza satın alımlarını veya mağazanın yasal olarak tuttuğu işlem kayıtlarını otomatik olarak silmez. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat Gizlilik Politikası</a>, <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a> ve iOS için <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple Gizlilik Politikası</a> ayrıca geçerlidir.</p>
-
-  <h3>Destek mesajları</h3>
-  <p>Destek için e-posta gönderirsen, e-posta adresin ve kendi eklediğin bilgiler talebini yanıtlamak için kullanılır. Oyun otomatik olarak bir destek e-postası göndermez. Şifre, kart bilgisi veya kimlik belgesi göndermeni istemeyiz.</p>
-
-  <h3>Cihaz kaydını silme ve satın almaları geri yükleme</h3>
-  <p>Cihazdaki kayıt, işletim sistemi üzerinden uygulama verilerini sildiğinde kaldırılabilir; sistem yedeklerini ayrıca yönetmen gerekebilir. Bu işlem oyun ilerlemesini silebilir. Kalıcı satın alma haklarını ilgili platformdaki aynı mağaza hesabıyla geri yüklemek ayrı bir işlemdir. Android'den iOS'a satın alma hakkı taşınması mevcut sürümde vaat edilmez.</p>
-  <p>Geliştiricinin veya hizmet sağlayıcılarının işlediği veriler hakkında bilgi, düzeltme veya silme talebi için <a href="mailto:survive.support@gmail.com?subject=Hayatta%20Kal%20gizlilik%20talebi">survive.support@gmail.com</a> adresine başvurabilirsin. İlgili kaydı bulmak için gerekli en az bilgi, örneğin bir satın alma işlem referansı, istenebilir. Talep, ilgili kayıtla eşleştirilerek değerlendirilir; yasal saklama ve işlem doğrulama gereklilikleri ayrıca dikkate alınır. Google ve RevenueCat'in kendi hizmetlerindeki veri işlemesi ve saklama kuralları kendi politikalarında açıklanır.</p>
-
-  <h3>Güvenlik ve hizmet sağlayıcıları</h3>
-  <p>İçerik, reklam ve satın alma servisleriyle ağ iletişiminde HTTPS kullanılır. Google, RevenueCat ve barındırma sağlayıcıları hizmetlerini farklı ülkelerdeki altyapılarında işleyebilir. Hiçbir saklama veya aktarım yöntemi mutlak güvenlik garantisi vermez.</p>
+      <h2 id="privacy-title">Gizlilik Politikası</h2>
+      <p class="date">Son güncelleme: 18 Kasım 2026</p>
+      <p>Bu politika, İbrahim Mesut Yılmaz tarafından sunulan Hayatta Kal tanıtım sitesinin ve cihaz içi kayıt kullanan
+        mobil oyunun veri kullanımını açıklar. Gizlilik ve destek iletişimi: <a
+          href="mailto:survive.support@gmail.com">survive.support@gmail.com</a>.</p>
 
 
-  <h3>Hukuki sebepler ve KVKK hakları</h3>
-  <p>Veri sorumlusu İbrahim Mesut Yılmaz’dır. Hizmetin sunulması ve satın alma haklarının doğrulanmasıyla doğrudan ilgili gerekli işlemler KVKK m.5/2(c); güvenlik için zorunlu ve haklarına ölçüsüz müdahale etmeyen işlemler m.5/2(f); bir hakkın tesisi, kullanılması veya korunması m.5/2(e); somut yasal yükümlülükler için gereken işlemler m.5/2(ç) çerçevesinde değerlendirilir. Reklam veya isteğe bağlı takip için bunlardan birine dayanılamıyorsa m.5/1 uyarınca ayrı açık rıza gerekir. Ayrıntılı amaç/veri eşleştirmesi <a href="kvkk.html">KVKK Aydınlatma Metni</a> içindedir.</p>
-  <p>Verilerinin işlenmesini öğrenme, bilgi isteme, amacını ve alıcılarını öğrenme, yanlış kayıtları düzelttirme, şartları oluştuğunda silme/yok etme ve alıcılara bildirim isteme, yalnız otomatik analizle aleyhine çıkan sonuca itiraz etme ve hukuka aykırı işleme zararının giderilmesini isteme hakların vardır. Başvuru için <a href="mailto:survive.support@gmail.com?subject=KVKK%20basvurusu">survive.support@gmail.com</a> adresini kullanabilirsin. Kimliğini ve talebini güvenli biçimde eşleştirmek için gerekli asgari bilgi istenebilir. Başvurular en kısa sürede, en geç 30 gün içinde yazılı veya elektronik olarak yanıtlanır; kanuni başvuru yolların saklıdır.</p>
+      <h3>Tanıtım sitesi, çerezler ve dış bağlantılar</h3>
+      <p>Tanıtım sitesinin mevcut sürümünde üyelik, iletişim formu, reklam SDK’sı, ziyaretçi analiz kodu, pazarlama
+        çerezi veya tarayıcıda izleme amaçlı yerel depolama bulunmaz. Yazı tipleri ve görseller sitenin kendi
+        dosyalarından yüklenir. Siteyi ziyaret etmek mobil oyunun reklam veya satın alma servislerini çalıştırmaz.</p>
+      <p>Sayfanın iletilmesi ve güvenliği için barındırma altyapısı IP adresi, istek zamanı, istenen sayfa, HTTP sonucu
+        ve tarayıcının ilettiği teknik bilgileri işleyebilir. İletişim bağlantısı kendi e-posta uygulamanı açar; mesajı
+        sen gönderdiğinde e-posta sağlayıcıları da bu iletişimi işler. Dış servislerin bağlantıları, o servise
+        geçtiğinde kendi gizlilik koşullarına tabidir.</p>
 
-  <h3>Saklama ölçütleri ve silme</h3>
-  <p>Cihazdaki oyun verileri sen uygulama verilerini silene kadar kalabilir. Teknik erişim kayıtları yalnız hizmetin işletilmesi ve güvenliğin sağlanması için gerekli süreyle; destek mesajları talebin sonuçlandırılması ve gerekli takibiyle sınırlı olarak tutulur. Satın alma/işlem kayıtları hakların doğrulanması ve geri yüklenmesi için gerektiği sürece, bir uyuşmazlığa konu kayıtlar ilgili hakkın korunması için gereken süreyle sınırlı saklanır. Somut bir yasal saklama zorunluluğu varsa yalnız ilgili kayıt ve süre bakımından uygulanır; süresiz saklama amacı yoktur.</p>
-  <p>İşleme şartları ortadan kalktığında kayıtlar ilgili mevzuat uyarınca silinir, yok edilir veya gerçek anlamda anonimleştirilir. Geliştirici kontrolündeki kayıtlar ile sağlayıcıların kendi sorumluluğundaki mağaza, reklam ve e-posta kayıtları farklı olabilir; bir talepte hangi kayıt için hangi işlem yapıldığı açıklanır. RevenueCat’teki bir müşteri kaydının silinmesi mağazadaki satın almayı iptal etmekle aynı işlem değildir. Veri silme bir iade talebi de değildir.</p>
+      <h3>Oyun kaydı ve günlük içerik</h3>
+      <p>XP, seviye, karakter seçimi, başarımlar, günlük sonuçlar, reklamla açılan günler, meşale kullanım bakiyesi,
+        aynı meşale işleminin tekrar verilmesini engelleyen işlem referansları ve ses tercihleri cihazdaki uygulama
+        alanında saklanır. Mevcut sürümde oyuncu hesabı oluşturma ve geliştirici tarafından sağlanan cihazlar arası
+        bulut kayıt hizmeti yoktur. İşletim sisteminin yedekleme işlevleri cihaz ayarlarına göre ayrıca çalışabilir;
+        bunlar oyun içi bir bulut kayıt hizmeti değildir.</p>
+      <p>Günlük hikâyeler internet üzerinden indirilir. Bu bağlantılar sırasında içerik barındırma sağlayıcısı IP
+        adresi, istek zamanı ve istenen dosya gibi teknik erişim verilerini işleyebilir. Oyun ilerlemesi günlük hikâye
+        indirme isteğine eklenmez. Bu cihaz içi kayıt/CDN sürümünde oyun olayları geliştiricinin ayrı bir analiz
+        API'sine gönderilmez. Kaynak kodunda API ve hesap aktarımı için hazırlıklar bulunması, bu hizmetlerin bu sürümde
+        açık olduğu anlamına gelmez. Sunucu tabanlı kayıt veya olay analizi kullanıma sunulmadan önce veri akışı ve bu
+        metin güncellenir.</p>
 
-  <h3>Alıcılar ve yurt dışı işlemler</h3>
-  <p>Teknik erişim verileri barındırma sağlayıcılarınca, satın alma/uygulama müşteri kimliği ve işlem referansları RevenueCat ve ilgili mağazaca, reklam verileri Google AdMob tarafından, destek mesajları ise e-posta sağlayıcısı Google/Gmail üzerinden işlenir. Yetkili mercilere veri ancak somut hukuki zorunluluk kapsamında iletilebilir. Geliştirici oyun ilerlemesini reklam hedefleme listesi veya üçüncü kişilere satılacak bir veri listesi olarak kullanmaz.</p>
-  <p>Google, Apple ve RevenueCat gibi hizmetlerin kullanımı yurt dışındaki sistemlerde veri işlenmesini içerebilir. İşleme hukuki sebebi ile yurt dışına aktarımın hukuki dayanağı farklı konulardır: aktarım için KVKK m.9’daki uygun şart ve güvenceler ayrıca sağlanmalıdır. Bu metni okumak veya “Kapat” düğmesine basmak aktarım rızası değildir; bu metin tek başına bir aktarım sözleşmesinin yerine geçmez.</p>
+      <h3>Ödüllü reklamlar</h3>
+      <p>Yaş veya doğum tarihi sormayız. Bütün oyuncular için genel izleyici (G) reklam içerik sınırı,
+        kişiselleştirilmemiş reklam isteği ve rıza yaşının altındaki kullanıcılar için sunulan kısıtlı veri işleme
+        etiketleri uygulanır. Bunlar reklam içeriği ve veri işlemesini sınırlayan ayarlardır; her reklamın içeriği
+        hakkında mutlak garanti değildir.</p>
+      <p>Kaçırılan geçmiş günleri açmak veya enerji tükendiğinde bir oyun denemesinde en fazla bir kez devam etmek için
+        isteğe bağlı Google AdMob ödüllü reklamları kullanılır. Reklam hizmeti IP adresi ve buna dayanan yaklaşık konum,
+        cihaz/reklam kimlikleri, reklamla etkileşim ve teknik tanı bilgilerini reklam sunma, ölçüm ve kötüye kullanımı
+        önleme amacıyla işleyebilir. Kişiselleştirilmemiş reklam isteği kullanılması bütün teknik veri işlemenin durduğu
+        anlamına gelmez.</p>
+      <p>Reklam isteğinden önce Google'ın izin durumu kontrol edilir. Bu sürümde tüm kullanıcılara uygulanan koruyucu
+        etiketler nedeniyle Google ek izin formu göstermeyebilir. Uygulamanın Ayarlar bölümündeki “Reklam gizlilik
+        seçenekleri” mevcut durumu açıklar ve gerektiğinde sunulan formu açar. İşletim sisteminin reklam gizliliği
+        kontrollerini de kullanabilirsin. Reklamları Kaldır hakkı, yayımlanmış geçmiş günlere reklam izlemeden erişim
+        sağlar.</p>
+      <p>Kişiselleştirilmemiş reklam veya Google izin formunun gösterilmemesi, tek başına KVKK kapsamında açık rıza
+        alındığı anlamına gelmez. Rıza gerektiren veri işleme için ayrıca geçerli bir tercih mekanizması gerekir.</p>
+      <p>Google'ın veri kullanımı: <a href="https://policies.google.com/privacy" target="_blank"
+          rel="noopener noreferrer">Google Gizlilik Politikası</a> ve <a
+          href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">iş
+          ortağı uygulamalarından gelen bilgiler</a>.</p>
 
-  <h3>Yaş grubu ve hassas bilgiler</h3>
-  <p>Oyun 13 yaş ve üzeri kitle için hazırlanır; yaş veya doğum tarihi alanı bulunmaz. Reklamlar için uygulanan koruyucu ayarlar, çocukların verileri ve gerekli olduğunda veli/vasi onayıyla ilgili yükümlülüklerin yerine geçtiği anlamına gelmez. Destek mesajında sağlık, kimlik belgesi, parola veya kart bilgisi paylaşma. Çocuğa ait verilerle ilgili talepler de destek adresine iletilebilir.</p>
+      <h3>Satın alımlar</h3>
+      <p>Reklam kaldırma, zor mod ve karakterler kalıcı satın alma haklarıdır; iade veya hakkın iptali durumunda
+        kaldırılabilirler. Meşale paketi ise beş kullanım veren tüketilebilir bir üründür. Mevcut cihaz içi kayıt
+        yapısında kullanılmış veya kalan meşale haklarının uygulama verileri silindikten ya da cihaz değiştirildikten
+        sonra geri yüklenmesi garanti edilmez.</p>
+      <p>Ödemeler Android'de Google Play, iOS'ta Apple App Store tarafından yürütülür. Kart bilgileri oyun tarafından
+        alınmaz. Satın alma haklarını doğrulamak ve geri yüklemek için RevenueCat kullanılır. Bu hizmet satın alma
+        geçmişini, işlem ve ürün referanslarını, uygulamaya ait müşteri kimliğini ve doğrulama için gerekli teknik
+        bilgileri işler. Oyunda ad, telefon veya e-posta adresini RevenueCat müşteri özelliği olarak toplamayız.</p>
+      <p>Satın alma kayıtları, hakların doğrulanması ve geri yüklenmesi için saklanır. Oyun verilerini silmek mağaza
+        satın alımlarını veya mağazanın yasal olarak tuttuğu işlem kayıtlarını otomatik olarak silmez. <a
+          href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat Gizlilik
+          Politikası</a>, <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google
+          Gizlilik Politikası</a> ve iOS için <a href="https://www.apple.com/legal/privacy/" target="_blank"
+          rel="noopener noreferrer">Apple Gizlilik Politikası</a> ayrıca geçerlidir.</p>
 
-  <h3>Politika değişiklikleri</h3>
-  <p>Veri kullanımı veya oyun özellikleri değiştiğinde bu sayfa ve güncelleme tarihi yenilenir. Hesap veya bulut kayıt hizmeti eklenirse, bu hizmete ilişkin bilgiler kullanıma sunulmadan önce açıklanır.</p>
+      <h3>Destek mesajları</h3>
+      <p>Destek için e-posta gönderirsen, e-posta adresin ve kendi eklediğin bilgiler talebini yanıtlamak için
+        kullanılır. Oyun otomatik olarak bir destek e-postası göndermez. Şifre, kart bilgisi veya kimlik belgesi
+        göndermeni istemeyiz.</p>
 
-</div></dialog>
-  <dialog class="privacy-modal kvkk-modal" data-legal-modal="kvkk" aria-labelledby="kvkk-title"><div class="privacy-toolbar"><span class="eyebrow">HAYATTA KAL / KVKK</span><button class="drawer-close legal-close" type="button" aria-label="KVKK Aydınlatma Metni penceresini kapat"><span></span><span></span></button></div><div class="privacy-content">
-  <h2 id="kvkk-title">KVKK Aydınlatma Metni</h2>
-  <p class="date">Son güncelleme: 18 Kasım 2026</p>
-  <p>Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun 10. maddesi kapsamında Hayatta Kal tanıtım sitesini ziyaret edenleri, mobil oyunun cihaz içi kayıt sürümünü kullananları ve destek için iletişim kuranları bilgilendirir. Açık rıza metni değildir; okuma, siteye girme veya pencereyi kapatma rıza sayılmaz.</p>
-  <h3>Veri sorumlusu ve iletişim</h3>
-  <p>Veri sorumlusu <strong>İbrahim Mesut Yılmaz (Brahim)</strong>’dır. Destek ve kişisel veri başvuruları: <a href="mailto:survive.support@gmail.com?subject=KVKK%20basvurusu">survive.support@gmail.com</a>.</p>
-  <h3>Veriler, toplama yöntemleri, amaçlar ve hukuki sebepler</h3>
-  <ul>
-    <li><strong>Web/oyun içeriği erişimi:</strong> IP adresi, istek zamanı, istenen kaynak ve tarayıcı/ağ teknik bilgileri elektronik HTTP istekleriyle altyapıya ulaşır. İstenen sayfanın ve günlük içeriğin sunulması için gerekli kısım m.5/2(c); güvenlik ve kötüye kullanım önleme için zorunlu, ölçülü kısım m.5/2(f) kapsamında işlenir.</li>
-    <li><strong>Oyun kaydı:</strong> XP, seviye, karakterler, bölüm sonucu, eşya ve meşale bakiyesi cihazda tutulur; oyunun çalışması için gerekli işlemler m.5/2(c) kapsamındadır. Bu CDN sürümünde geliştiriciye bulut ilerleme kaydı veya oyun olayı analizi gönderilmez.</li>
-    <li><strong>Satın alma:</strong> RevenueCat uygulama müşteri kimliği, satın alma geçmişi, ürün/işlem referansları ve doğrulama verileri SDK/mağaza bağlantılarıyla işlenir. Hakkı sağlama ve geri yükleme için gerekli kısım m.5/2(c); somut hak uyuşmazlığı kayıtları m.5/2(e) kapsamındadır. Kart bilgileri geliştirici tarafından alınmaz.</li>
-    <li><strong>Destek:</strong> E-postayla bildirdiğin adres, ad ve mesaj içeriği talebini yanıtlamak için alınır. Mevcut hizmet veya satın alma talebiyle doğrudan ilgili gerekli kısım m.5/2(c), hakkın korunmasına ilişkin kayıtlar m.5/2(e); diğer destek taleplerinin yanıtlanması için zorunlu ve ölçülü kısım m.5/2(f) kapsamında değerlendirilir.</li>
-    <li><strong>Reklam:</strong> Mobil oyunda etkinleştirilen Google AdMob, reklam sunumu, ölçüm ve sahtekârlık önleme için IP/yaklaşık konum, cihaz veya uygulama kimlikleri, etkileşim ve tanı bilgileri işleyebilir. Hizmet için zorunlu olmayan ve başka işleme şartına dayanmayan reklam/takip işlemleri m.5/1 kapsamında ayrı açık rıza gerektirir. Kişiselleştirilmemiş reklam ve UMP ayarları tek başına KVKK rızası oluşturmaz.</li>
-    <li><strong>Hukuki yükümlülük:</strong> Yetkili makam başvuruları ve kanuni taleplere cevap için somut olarak gerekli kayıtlar, ilgili yükümlülükle sınırlı şekilde m.5/2(ç) kapsamında işlenir. Başka amaçlara yönelik toplu veya sınırsız bir hukuki sebep uygulanmaz.</li>
-  </ul>
-  <h3>Kimlere ve hangi amaçla aktarım yapılır?</h3>
-  <p>Web ve günlük içerik erişiminde barındırma sağlayıcıları teknik verileri hizmeti sunmak ve korumak için işler. Satın alma verileri hak doğrulama için RevenueCat ile Google Play veya iOS’ta Apple App Store’a; reklam verileri reklam/ölçüm/güvenlik için Google AdMob’a; destek mesajları iletişim için Google/Gmail e-posta altyapısına ulaşır. Mevzuat gerektirirse yalnız gerekli veriler yetkili mercilerle paylaşılır. Sağlayıcıların kendi sorumluluklarındaki işlemler ayrıca kendi politikalarına tabidir.</p>
-  <h3>Yurt dışına aktarım</h3>
-  <p>Google, Apple, RevenueCat ve e-posta hizmetleri yurt dışı altyapı kullanabilir. Böyle bir aktarımda KVKK m.9 kapsamında geçerli bir aktarım şartı ve gerekli güvenceler bulunmalıdır. Bir hizmetin gizlilik politikasına bağlantı verilmesi veya bu metnin okunması, bu şartların sağlandığını veya bir standart sözleşmenin imzalandığını göstermez. Açık rıza gereken hallerde rıza ayrıca istenir; rutin aktarımın hukuki dayanağı yalnızca bu metinle veya reklam izleme düğmesiyle kurulamaz.</p>
-  <h3>Saklama ve imha</h3>
-  <p>Cihaz kaydı, uygulama verilerini sildiğinde kaldırılabilir; işletim sistemi yedeklerini ayrıca yönetmen gerekebilir. Erişim/güvenlik kayıtları işletim ve güvenlik ihtiyacıyla, destek kayıtları talebin çözümü ve gerekli takibiyle, işlem kayıtları satın alma hakkının sunulması/geri yüklenmesiyle sınırlıdır. Somut uyuşmazlık veya yasal zorunluluk varsa yalnız ilgili kayıt gerekli süreyle saklanır. İşleme şartları sona erdiğinde mevzuata uygun silme, yok etme veya anonimleştirme uygulanır. Mağazaların kendi yükümlülükleri nedeniyle tuttuğu kayıtlar farklı sürelerde tutulabilir.</p>
-  <h3>Kanun’un 11. maddesindeki hakların</h3>
-  <ul><li>Kişisel verilerinin işlenip işlenmediğini öğrenme ve işlenmişse bilgi isteme;</li><li>İşleme amacını ve bu amaca uygun kullanımını öğrenme;</li><li>Yurt içinde veya yurt dışında aktarım yapılan üçüncü kişileri bilme;</li><li>Eksik veya yanlış işlenen verilerini düzelttirme;</li><li>Kanuni şartlarda silme/yok etme ve düzeltme veya silme işlemlerinin alıcılara bildirilmesini isteme;</li><li>Yalnız otomatik analizle aleyhine oluşan sonuca itiraz etme;</li><li>Hukuka aykırı işleme nedeniyle zararının giderilmesini talep etme.</li></ul>
-  <h3>Başvuru ve cevap</h3>
-  <p>Talebini <a href="mailto:survive.support@gmail.com?subject=KVKK%20basvurusu">survive.support@gmail.com</a> adresine gönderebilirsin. Başvuruda adını, iletişim bilgini ve talebini açıkça belirt. KVKK ve Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ’deki başvuru yöntemleri ve zorunlu unsurlar saklıdır; kimlik doğrulama gerekirse güvenli yöntem ve gerekli en az bilgi ayrıca bildirilir. Sıradan bir destek mesajında kimlik belgesi veya parola gönderme.</p>
-  <p>Başvurular en kısa sürede ve en geç 30 gün içinde yazılı veya elektronik olarak sonuçlandırılır. Kural olarak ücretsizdir; ayrıca maliyet doğarsa yalnız Kurul tarifesi uygulanabilir. Ret, yetersiz cevap veya süresinde cevap verilmemesi halinde, kanuni süre ve usullerde Kişisel Verileri Koruma Kuruluna şikâyet hakkın vardır.</p>
-  <h3>Tanıtım sitesinde çerez ve gelecekteki değişiklikler</h3>
-  <p>Mevcut site kodunda reklam/analiz çerezi veya izleme SDK’sı yoktur; bu nedenle siteye sahte bir çerez kabul ekranı eklenmez. Mobil reklam servisleri farklıdır. Hesap, bulut kayıt, analiz veya başka isteğe bağlı izleme eklenirse bu metin ve gereken izin/başvuru mekanizmaları ilgili işleme başlamadan önce güncellenir.</p>
-  <p>Ayrıntılı servis açıklamaları için <a href="privacy.html">Gizlilik Politikası</a> geçerlidir.</p>
-</div></dialog>
+      <h3>Cihaz kaydını silme ve satın almaları geri yükleme</h3>
+      <p>Cihazdaki kayıt, işletim sistemi üzerinden uygulama verilerini sildiğinde kaldırılabilir; sistem yedeklerini
+        ayrıca yönetmen gerekebilir. Bu işlem oyun ilerlemesini silebilir. Kalıcı satın alma haklarını ilgili
+        platformdaki aynı mağaza hesabıyla geri yüklemek ayrı bir işlemdir. Android'den iOS'a satın alma hakkı taşınması
+        mevcut sürümde vaat edilmez.</p>
+      <p>Geliştiricinin veya hizmet sağlayıcılarının işlediği veriler hakkında bilgi, düzeltme veya silme talebi için <a
+          href="mailto:survive.support@gmail.com?subject=Hayatta%20Kal%20gizlilik%20talebi">survive.support@gmail.com</a>
+        adresine başvurabilirsin. İlgili kaydı bulmak için gerekli en az bilgi, örneğin bir satın alma işlem referansı,
+        istenebilir. Talep, ilgili kayıtla eşleştirilerek değerlendirilir; yasal saklama ve işlem doğrulama
+        gereklilikleri ayrıca dikkate alınır. Google ve RevenueCat'in kendi hizmetlerindeki veri işlemesi ve saklama
+        kuralları kendi politikalarında açıklanır.</p>
+
+      <h3>Güvenlik ve hizmet sağlayıcıları</h3>
+      <p>İçerik, reklam ve satın alma servisleriyle ağ iletişiminde HTTPS kullanılır. Google, RevenueCat ve barındırma
+        sağlayıcıları hizmetlerini farklı ülkelerdeki altyapılarında işleyebilir. Hiçbir saklama veya aktarım yöntemi
+        mutlak güvenlik garantisi vermez.</p>
+
+
+      <h3>Hukuki sebepler ve KVKK hakları</h3>
+      <p>Veri sorumlusu İbrahim Mesut Yılmaz’dır. Hizmetin sunulması ve satın alma haklarının doğrulanmasıyla doğrudan
+        ilgili gerekli işlemler KVKK m.5/2(c); güvenlik için zorunlu ve haklarına ölçüsüz müdahale etmeyen işlemler
+        m.5/2(f); bir hakkın tesisi, kullanılması veya korunması m.5/2(e); somut yasal yükümlülükler için gereken
+        işlemler m.5/2(ç) çerçevesinde değerlendirilir. Reklam veya isteğe bağlı takip için bunlardan birine
+        dayanılamıyorsa m.5/1 uyarınca ayrı açık rıza gerekir. Ayrıntılı amaç/veri eşleştirmesi <a href="kvkk.html">KVKK
+          Aydınlatma Metni</a> içindedir.</p>
+      <p>Verilerinin işlenmesini öğrenme, bilgi isteme, amacını ve alıcılarını öğrenme, yanlış kayıtları düzelttirme,
+        şartları oluştuğunda silme/yok etme ve alıcılara bildirim isteme, yalnız otomatik analizle aleyhine çıkan sonuca
+        itiraz etme ve hukuka aykırı işleme zararının giderilmesini isteme hakların vardır. Başvuru için <a
+          href="mailto:survive.support@gmail.com?subject=KVKK%20basvurusu">survive.support@gmail.com</a> adresini
+        kullanabilirsin. Kimliğini ve talebini güvenli biçimde eşleştirmek için gerekli asgari bilgi istenebilir.
+        Başvurular en kısa sürede, en geç 30 gün içinde yazılı veya elektronik olarak yanıtlanır; kanuni başvuru
+        yolların saklıdır.</p>
+
+      <h3>Saklama ölçütleri ve silme</h3>
+      <p>Cihazdaki oyun verileri sen uygulama verilerini silene kadar kalabilir. Teknik erişim kayıtları yalnız hizmetin
+        işletilmesi ve güvenliğin sağlanması için gerekli süreyle; destek mesajları talebin sonuçlandırılması ve gerekli
+        takibiyle sınırlı olarak tutulur. Satın alma/işlem kayıtları hakların doğrulanması ve geri yüklenmesi için
+        gerektiği sürece, bir uyuşmazlığa konu kayıtlar ilgili hakkın korunması için gereken süreyle sınırlı saklanır.
+        Somut bir yasal saklama zorunluluğu varsa yalnız ilgili kayıt ve süre bakımından uygulanır; süresiz saklama
+        amacı yoktur.</p>
+      <p>İşleme şartları ortadan kalktığında kayıtlar ilgili mevzuat uyarınca silinir, yok edilir veya gerçek anlamda
+        anonimleştirilir. Geliştirici kontrolündeki kayıtlar ile sağlayıcıların kendi sorumluluğundaki mağaza, reklam ve
+        e-posta kayıtları farklı olabilir; bir talepte hangi kayıt için hangi işlem yapıldığı açıklanır. RevenueCat’teki
+        bir müşteri kaydının silinmesi mağazadaki satın almayı iptal etmekle aynı işlem değildir. Veri silme bir iade
+        talebi de değildir.</p>
+
+      <h3>Alıcılar ve yurt dışı işlemler</h3>
+      <p>Teknik erişim verileri barındırma sağlayıcılarınca, satın alma/uygulama müşteri kimliği ve işlem referansları
+        RevenueCat ve ilgili mağazaca, reklam verileri Google AdMob tarafından, destek mesajları ise e-posta sağlayıcısı
+        Google/Gmail üzerinden işlenir. Yetkili mercilere veri ancak somut hukuki zorunluluk kapsamında iletilebilir.
+        Geliştirici oyun ilerlemesini reklam hedefleme listesi veya üçüncü kişilere satılacak bir veri listesi olarak
+        kullanmaz.</p>
+      <p>Google, Apple ve RevenueCat gibi hizmetlerin kullanımı yurt dışındaki sistemlerde veri işlenmesini içerebilir.
+        İşleme hukuki sebebi ile yurt dışına aktarımın hukuki dayanağı farklı konulardır: aktarım için KVKK m.9’daki
+        uygun şart ve güvenceler ayrıca sağlanmalıdır. Bu metni okumak veya “Kapat” düğmesine basmak aktarım rızası
+        değildir; bu metin tek başına bir aktarım sözleşmesinin yerine geçmez.</p>
+
+      <h3>Yaş grubu ve hassas bilgiler</h3>
+      <p>Oyun 13 yaş ve üzeri kitle için hazırlanır; yaş veya doğum tarihi alanı bulunmaz. Reklamlar için uygulanan
+        koruyucu ayarlar, çocukların verileri ve gerekli olduğunda veli/vasi onayıyla ilgili yükümlülüklerin yerine
+        geçtiği anlamına gelmez. Destek mesajında sağlık, kimlik belgesi, parola veya kart bilgisi paylaşma. Çocuğa ait
+        verilerle ilgili talepler de destek adresine iletilebilir.</p>
+
+      <h3>Politika değişiklikleri</h3>
+      <p>Veri kullanımı veya oyun özellikleri değiştiğinde bu sayfa ve güncelleme tarihi yenilenir. Hesap veya bulut
+        kayıt hizmeti eklenirse, bu hizmete ilişkin bilgiler kullanıma sunulmadan önce açıklanır.</p>
+
+    </div>
+  </dialog>
+  <dialog class="privacy-modal kvkk-modal" data-legal-modal="kvkk" aria-labelledby="kvkk-title">
+    <div class="privacy-toolbar"><span class="eyebrow">HAYATTA KAL / KVKK</span><button class="drawer-close legal-close"
+        type="button" aria-label="KVKK Aydınlatma Metni penceresini kapat"><span></span><span></span></button></div>
+    <div class="privacy-content">
+      <h2 id="kvkk-title">KVKK Aydınlatma Metni</h2>
+      <p class="date">Son güncelleme: 18 Kasım 2026</p>
+      <p>Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun 10. maddesi kapsamında Hayatta Kal tanıtım
+        sitesini ziyaret edenleri, mobil oyunun cihaz içi kayıt sürümünü kullananları ve destek için iletişim kuranları
+        bilgilendirir. Açık rıza metni değildir; okuma, siteye girme veya pencereyi kapatma rıza sayılmaz.</p>
+      <h3>Veri sorumlusu ve iletişim</h3>
+      <p>Veri sorumlusu <strong>İbrahim Mesut Yılmaz (Brahim)</strong>’dır. Destek ve kişisel veri başvuruları: <a
+          href="mailto:survive.support@gmail.com?subject=KVKK%20basvurusu">survive.support@gmail.com</a>.</p>
+      <h3>Veriler, toplama yöntemleri, amaçlar ve hukuki sebepler</h3>
+      <ul>
+        <li><strong>Web/oyun içeriği erişimi:</strong> IP adresi, istek zamanı, istenen kaynak ve tarayıcı/ağ teknik
+          bilgileri elektronik HTTP istekleriyle altyapıya ulaşır. İstenen sayfanın ve günlük içeriğin sunulması için
+          gerekli kısım m.5/2(c); güvenlik ve kötüye kullanım önleme için zorunlu, ölçülü kısım m.5/2(f) kapsamında
+          işlenir.</li>
+        <li><strong>Oyun kaydı:</strong> XP, seviye, karakterler, bölüm sonucu, eşya ve meşale bakiyesi cihazda tutulur;
+          oyunun çalışması için gerekli işlemler m.5/2(c) kapsamındadır. Bu CDN sürümünde geliştiriciye bulut ilerleme
+          kaydı veya oyun olayı analizi gönderilmez.</li>
+        <li><strong>Satın alma:</strong> RevenueCat uygulama müşteri kimliği, satın alma geçmişi, ürün/işlem
+          referansları ve doğrulama verileri SDK/mağaza bağlantılarıyla işlenir. Hakkı sağlama ve geri yükleme için
+          gerekli kısım m.5/2(c); somut hak uyuşmazlığı kayıtları m.5/2(e) kapsamındadır. Kart bilgileri geliştirici
+          tarafından alınmaz.</li>
+        <li><strong>Destek:</strong> E-postayla bildirdiğin adres, ad ve mesaj içeriği talebini yanıtlamak için alınır.
+          Mevcut hizmet veya satın alma talebiyle doğrudan ilgili gerekli kısım m.5/2(c), hakkın korunmasına ilişkin
+          kayıtlar m.5/2(e); diğer destek taleplerinin yanıtlanması için zorunlu ve ölçülü kısım m.5/2(f) kapsamında
+          değerlendirilir.</li>
+        <li><strong>Reklam:</strong> Mobil oyunda etkinleştirilen Google AdMob, reklam sunumu, ölçüm ve sahtekârlık
+          önleme için IP/yaklaşık konum, cihaz veya uygulama kimlikleri, etkileşim ve tanı bilgileri işleyebilir. Hizmet
+          için zorunlu olmayan ve başka işleme şartına dayanmayan reklam/takip işlemleri m.5/1 kapsamında ayrı açık rıza
+          gerektirir. Kişiselleştirilmemiş reklam ve UMP ayarları tek başına KVKK rızası oluşturmaz.</li>
+        <li><strong>Hukuki yükümlülük:</strong> Yetkili makam başvuruları ve kanuni taleplere cevap için somut olarak
+          gerekli kayıtlar, ilgili yükümlülükle sınırlı şekilde m.5/2(ç) kapsamında işlenir. Başka amaçlara yönelik
+          toplu veya sınırsız bir hukuki sebep uygulanmaz.</li>
+      </ul>
+      <h3>Kimlere ve hangi amaçla aktarım yapılır?</h3>
+      <p>Web ve günlük içerik erişiminde barındırma sağlayıcıları teknik verileri hizmeti sunmak ve korumak için işler.
+        Satın alma verileri hak doğrulama için RevenueCat ile Google Play veya iOS’ta Apple App Store’a; reklam verileri
+        reklam/ölçüm/güvenlik için Google AdMob’a; destek mesajları iletişim için Google/Gmail e-posta altyapısına
+        ulaşır. Mevzuat gerektirirse yalnız gerekli veriler yetkili mercilerle paylaşılır. Sağlayıcıların kendi
+        sorumluluklarındaki işlemler ayrıca kendi politikalarına tabidir.</p>
+      <h3>Yurt dışına aktarım</h3>
+      <p>Google, Apple, RevenueCat ve e-posta hizmetleri yurt dışı altyapı kullanabilir. Böyle bir aktarımda KVKK m.9
+        kapsamında geçerli bir aktarım şartı ve gerekli güvenceler bulunmalıdır. Bir hizmetin gizlilik politikasına
+        bağlantı verilmesi veya bu metnin okunması, bu şartların sağlandığını veya bir standart sözleşmenin
+        imzalandığını göstermez. Açık rıza gereken hallerde rıza ayrıca istenir; rutin aktarımın hukuki dayanağı
+        yalnızca bu metinle veya reklam izleme düğmesiyle kurulamaz.</p>
+      <h3>Saklama ve imha</h3>
+      <p>Cihaz kaydı, uygulama verilerini sildiğinde kaldırılabilir; işletim sistemi yedeklerini ayrıca yönetmen
+        gerekebilir. Erişim/güvenlik kayıtları işletim ve güvenlik ihtiyacıyla, destek kayıtları talebin çözümü ve
+        gerekli takibiyle, işlem kayıtları satın alma hakkının sunulması/geri yüklenmesiyle sınırlıdır. Somut uyuşmazlık
+        veya yasal zorunluluk varsa yalnız ilgili kayıt gerekli süreyle saklanır. İşleme şartları sona erdiğinde
+        mevzuata uygun silme, yok etme veya anonimleştirme uygulanır. Mağazaların kendi yükümlülükleri nedeniyle tuttuğu
+        kayıtlar farklı sürelerde tutulabilir.</p>
+      <h3>Kanun’un 11. maddesindeki hakların</h3>
+      <ul>
+        <li>Kişisel verilerinin işlenip işlenmediğini öğrenme ve işlenmişse bilgi isteme;</li>
+        <li>İşleme amacını ve bu amaca uygun kullanımını öğrenme;</li>
+        <li>Yurt içinde veya yurt dışında aktarım yapılan üçüncü kişileri bilme;</li>
+        <li>Eksik veya yanlış işlenen verilerini düzelttirme;</li>
+        <li>Kanuni şartlarda silme/yok etme ve düzeltme veya silme işlemlerinin alıcılara bildirilmesini isteme;</li>
+        <li>Yalnız otomatik analizle aleyhine oluşan sonuca itiraz etme;</li>
+        <li>Hukuka aykırı işleme nedeniyle zararının giderilmesini talep etme.</li>
+      </ul>
+      <h3>Başvuru ve cevap</h3>
+      <p>Talebini <a href="mailto:survive.support@gmail.com?subject=KVKK%20basvurusu">survive.support@gmail.com</a>
+        adresine gönderebilirsin. Başvuruda adını, iletişim bilgini ve talebini açıkça belirt. KVKK ve Veri Sorumlusuna
+        Başvuru Usul ve Esasları Hakkında Tebliğ’deki başvuru yöntemleri ve zorunlu unsurlar saklıdır; kimlik doğrulama
+        gerekirse güvenli yöntem ve gerekli en az bilgi ayrıca bildirilir. Sıradan bir destek mesajında kimlik belgesi
+        veya parola gönderme.</p>
+      <p>Başvurular en kısa sürede ve en geç 30 gün içinde yazılı veya elektronik olarak sonuçlandırılır. Kural olarak
+        ücretsizdir; ayrıca maliyet doğarsa yalnız Kurul tarifesi uygulanabilir. Ret, yetersiz cevap veya süresinde
+        cevap verilmemesi halinde, kanuni süre ve usullerde Kişisel Verileri Koruma Kuruluna şikâyet hakkın vardır.</p>
+      <h3>Tanıtım sitesinde çerez ve gelecekteki değişiklikler</h3>
+      <p>Mevcut site kodunda reklam/analiz çerezi veya izleme SDK’sı yoktur; bu nedenle siteye sahte bir çerez kabul
+        ekranı eklenmez. Mobil reklam servisleri farklıdır. Hesap, bulut kayıt, analiz veya başka isteğe bağlı izleme
+        eklenirse bu metin ve gereken izin/başvuru mekanizmaları ilgili işleme başlamadan önce güncellenir.</p>
+      <p>Ayrıntılı servis açıklamaları için <a href="privacy.html">Gizlilik Politikası</a> geçerlidir.</p>
+    </div>
+  </dialog>
 </body>
+
 </html>
