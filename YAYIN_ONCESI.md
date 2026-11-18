@@ -12,8 +12,8 @@
 
 ## Yayın öncesinde hâlâ doğrulanacak gerçek ortam işleri
 
-- Alan adının hangi sunucuya bağlanacağı, DNS ve `www` tercihi; geçerli TLS/HTTPS ve tek adrese 301 yönlendirme. Plesk paneli açılınca mevcut hosting görülerek karar verilecek. Otomatik ücretli işlem veya DNS değişikliği yapılmadı.
-- Plesk/IIS için yalnız `dist/` içeriği ilgili alan adının belge köküne yüklenir. Başka sitenin httpdocs dizini üzerine yazılmaz. `.git`, kaynak notları, parolalar veya oyun sunucusu dosyaları yüklenmez. `web.config` içindeki başlıkların hostingde izinli olduğu ve gerçek HTTP yanıtı kontrol edilir.
+- [Tamamlandı — 18 Kasım 2026] failsurvive.com Plesk’e eklendi; belge kökü failsurvive.com. Yetkili DNS A kaydı 89.252.187.226, www CNAME failsurvive.com. Ücretsiz Let’s Encrypt kök+www sertifikası ve otomatik yenileme etkin. HTTP→HTTPS ve www→ana alan adı 301 ile doğrulandı; HTTPS 200 ve TLS doğrulama sonucu 0. Bazı ağlarda eski DNS önbelleği bir süre devam edebilir.
+- Plesk/IIS için yalnız dist/ içeriği failsurvive.com belge köküne yüklenir. Paket mevcut Plesk web.config dosyasını içermez ve onu ezmez. Güvenlik başlıkları deployment/security-headers.web.config.example içinde ayrı bir birleştirme örneğidir; bu dosya siteye yüklenmez. Başlıklar mevcut Plesk web.config ayarları korunarak ayrıca birleştirilmeli ve gerçek yanıtta doğrulanmalı. .git, kaynak notları, parolalar ve oyun sunucusu dosyaları yüklenmez.
 - VPS/Nginx seçilirse IIS `web.config` uygulanmaz. Aynı CSP/nosniff/frame/referrer/permissions başlıkları Nginx’te tanımlanır; dizin listeleme kapatılır. HSTS yalnız HTTPS ve yönlendirme doğrulandıktan sonra etkinleştirilir.
 - Web/CDN/VPS erişim loglarının gerçek veri alanları, saklama süresi, erişim yetkileri, imhası ve yedek döngüsü belirlenip test edilir. Politikaya uygulanmamış sabit bir süre yazılmadı. Destek e-postaları için de silme/yanıtlama sorumluluğu uygulanmalı.
 - Google/AdMob, RevenueCat ve Gmail’in yurt dışı veri akışlarında KVKK m.9 dayanağı, veri işleme sözleşmeleri ve gerekiyorsa standart sözleşme/bildirim usulü sağlayıcı bazında doğrulanır. İmzalanmış belge veya sağlanmış yeterlilik varmış gibi beyan yapılmadı. KVKK hukuk uzmanıyla bu gerçek sözleşmeler üzerinden son kontrol gerekir.
@@ -46,3 +46,7 @@ Oyunun yayınıyla birlikte/sonrasında web takvimine **canlı günlük bölüm 
 - Chrome: 320, 390, 768, 841, 1024, 1440px; tum sayfada yatay tasma ve kirpilan paragraf/buton metni bulunmadi.
 - 390px KVKK modali: 358px genislik, metin kaydirma ve kapatma; Gizlilik modali ac/kapat dogrulandi.
 - JavaScript sozdizimi, HTML kimlikleri/dosya referanslari, canonical, sitemap XML ve IIS web.config XML kontrolu gecti. Bunlar gercek hostingde HTTPS/baslik/riza islemlerinin dogrulanmasinin yerine gecmez.
+
+## Son durum — main, DNS ve SSL
+
+Site main dalına birleştirildi ve GitHub’a gönderildi. DNS/SSL işlemleri kullanıcı talimatıyla tamamlandı; Let’s Encrypt koşulları için ayrıca açık onay alındı. Sertifika panelinde son geçerlilik 16 Şubat 2027 ve otomatik yenileme etkin göründü. Kontroller sertifika denetimi kapatılmadan, DNS önbelleğini dışlamak için hosting IP’sine --resolve ile bağlanılarak yapıldı. Kullanıcı site dosyalarını kendisi yükleyecek; bu işlemde tanıtım dosyaları yüklenmedi.

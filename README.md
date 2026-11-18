@@ -47,3 +47,7 @@ Gerçek HTTPS mağaza adresini ilgili alana yazınca o kart otomatik normal bağ
 ## Güncel yayın hazırlığı
 
 `YAYIN_ONCESI.md` gerçek ortam kontrollerini ve yayın sonrası canlı takvim başlıkları talebini içerir. `node scripts/prepare-release.mjs --origin https://failsurvive.com` statik yayın paketini üretir. Gizlilik ve KVKK footer’da ayrı modal olarak açılır; aynı metinlerin doğrudan sayfaları mağaza bağlantıları için korunur. Eski metin ve KVKK yalnızca metinle tam uyum garantisi vermez; servis sözleşmeleri, rıza ve saklama uygulamaları ayrıca doğrulanmalıdır.
+
+## Plesk’e dosya yükleme
+
+Yayın paketini hazırladıktan sonra dist/ klasörünün kendisini değil, içindeki dosyaları Plesk’te failsurvive.com klasörüne yükleyin. Mevcut web.config dosyasını silmeyin/değiştirmeyin. deployment/ klasörü sunucuya yüklenmez; güvenlik başlıkları örneği mevcut Plesk ayarlarına daha sonra birleştirilir.
