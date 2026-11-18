@@ -16,3 +16,13 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.hero-art{transform:none!important}.has-js .reveal{opacity:1;transform:none}.has-js .calendar-preview.reveal{transform:rotate(-3deg)}}
 
 @media(max-width:600px){.art-coordinate{display:none}}
+
+/* Okunabilirlik: tum ekranlarda aciklamalar 16px, takvim alanlari 13px. */
+body{font-size:16px}
+body p:not(.hero-description):not(.lead),.character-ability strong,.faq-list summary{font-size:16px}
+.calendar-heading,.calendar-week,.calendar-day,.calendar-caption{font-size:13px}
+.calendar-caption{line-height:1.6;letter-spacing:.04em}
+@media(max-width:600px){.calendar-preview{padding:18px}.calendar-heading{letter-spacing:.06em}}
+
+/* Kaydirma boyunca gorunen, renksiz cam header. */
+.site-header{position:fixed;background:transparent;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
