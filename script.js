@@ -21,18 +21,68 @@
   });
 
   const header = $('.site-header'), menu = $('.menu-toggle');
-  const closeMenu = () => {
-    header.classList.remove('is-menu-open');
-    menu.setAttribute('aria-expanded', 'false'); menu.setAttribute('aria-label', 'Menüyü aç');
+  const drawer = $('#mobile-menu'), panel = $('.drawer-panel');
+  let menuOpen = false, closeTimer;
+  const closeMenu = (restoreFocus = false) => {
+    if (!menuOpen) return;
+    menuOpen = false;
+    drawer.classList.remove('is-open'); drawer.inert = true;
+    menu.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-label', 'Menüyü aç');
+    if (restoreFocus) menu.focus();
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => document.body.classList.remove('drawer-active'), reducedMotion.matches ? 0 : 650);
   };
-  menu.addEventListener('click', () => {
-    const open = header.classList.toggle('is-menu-open');
-    menu.setAttribute('aria-expanded', String(open));
-    menu.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+  const openMenu = () => {
+    clearTimeout(closeTimer); menuOpen = true; drawer.inert = false;
+    document.body.classList.add('drawer-active'); drawer.classList.add('is-open');
+    menu.setAttribute('aria-expanded', 'true'); menu.setAttribute('aria-label', 'Menüyü kapat');
+    $('.drawer-close').focus({ preventScroll: true });
+  };
+  menu.addEventListener('click', () => menuOpen ? closeMenu(true) : openMenu());
+  $('.drawer-close').addEventListener('click', () => closeMenu(true));
+  $('.drawer-backdrop').addEventListener('click', () => closeMenu(true));
+  $$('.drawer-panel a').forEach(link => link.addEventListener('click', () => closeMenu(true)));
+  document.addEventListener('keydown', event => {
+    if (!menuOpen) return;
+    if (event.key === 'Escape') { event.preventDefault(); closeMenu(true); }
+    if (event.key === 'Tab') {
+      const stops = [...panel.querySelectorAll('a,button')];
+      const first = stops[0], last = stops[stops.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
   });
-  $$('#main-nav a').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
-  document.addEventListener('click', event => { if (!header.contains(event.target)) closeMenu(); });
+
+  // Native details klavye davranisini koruyan, tek acik yanitli slide animasyonu.
+  const faqItems = $$('.faq-list details');
+  const faqStates = new Map();
+  const slideFaq = (item, open) => {
+    const summary = item.querySelector('summary');
+    const current = item.getBoundingClientRect().height;
+    const previous = faqStates.get(item);
+    if (previous?.animation) previous.animation.cancel();
+    const state = { open, animation: null }; faqStates.set(item, state);
+    summary.setAttribute('aria-expanded', String(open));
+    if (reducedMotion.matches || !item.animate) { item.open = open; item.style.height = ''; return; }
+    item.style.height = ''; item.open = true;
+    const target = open ? item.getBoundingClientRect().height : summary.getBoundingClientRect().height + parseFloat(getComputedStyle(item).borderTopWidth) + parseFloat(getComputedStyle(item).borderBottomWidth);
+    item.style.overflow = 'hidden';
+    state.animation = item.animate([{ height: current + 'px' }, { height: target + 'px' }], { duration: 320, easing: 'cubic-bezier(.22,1,.36,1)' });
+    state.animation.onfinish = () => {
+      if (faqStates.get(item) !== state) return;
+      item.open = open; item.style.height = ''; item.style.overflow = ''; state.animation = null;
+    };
+  };
+  faqItems.forEach(item => {
+    const summary = item.querySelector('summary'); summary.setAttribute('aria-expanded', String(item.open));
+    summary.addEventListener('click', event => {
+      event.preventDefault();
+      const open = !(faqStates.get(item)?.open ?? item.open);
+      if (open) faqItems.forEach(other => { if (other !== item && (faqStates.get(other)?.open ?? other.open)) slideFaq(other, false); });
+      slideFaq(item, open);
+    });
+  });
 
   const icons = { man: 'heart', woman: 'eye', traitor: 'fang', criminal: 'hood', soldier: 'shield', hunter: 'target', shaman: 'flask', child: 'spark', elder: 'compass', ghost: 'ghost', titan: 'titan', shadow: 'moon', ranger: 'route', medic: 'plus', oracle: 'orb' };
   const immunities = { vampire_kill: 'Vampir türündeki ölüm olaylarına bağışıklık', fall_damage: 'Düşme türündeki ölüm olaylarına bağışıklık', trap_kill: 'Tuzak türündeki ölüm olaylarına bağışıklık', animal_kill: 'Vahşi hayvan türündeki ölüm olaylarına bağışıklık', poison_kill: 'Zehir türündeki ölüm olaylarına bağışıklık' };

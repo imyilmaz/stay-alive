@@ -45,8 +45,23 @@
     <a class="brand" href="#baslangic" aria-label="Hayatta Kal ana sayfa"><svg class="brand-heart"><use href="#i-heart"/></svg><span>HAYATTA KAL<small>HER KARARIN BİR BEDELİ VAR.</small></span></a>
     <nav id="main-nav" aria-label="Ana menü"><a href="#hikaye">Hikâye</a><a href="#karakterler">Karakterler</a><a href="#nasil-oynanir">Nasıl oynanır?</a><a href="#teknoloji">Meraklısına</a></nav>
     <a class="header-cta" href="#indir"><span class="status-dot"></span> MOBİLDE YAKINDA</a>
-    <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menüyü aç"><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Menüyü aç"><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
   </header>
+
+  <div class="mobile-drawer" id="mobile-menu" inert>
+    <button class="drawer-backdrop" type="button" aria-label="Menü dışına dokunarak kapat" tabindex="-1"></button>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobil menü">
+      <div class="drawer-top"><a class="brand" href="#baslangic" aria-label="Mobil menü ana sayfa"><svg class="brand-heart"><use href="#i-heart"/></svg><span>HAYATTA KAL<small>HER KARARIN BİR BEDELİ VAR.</small></span></a><button class="drawer-close" type="button" aria-label="Mobil menüyü kapat"><span></span><span></span></button></div>
+      <nav class="drawer-links" aria-label="Mobil gezinme">
+        <a href="#hikaye" style="--index:0">Hikâye</a>
+        <a href="#karakterler" style="--index:1">Karakterler</a>
+        <a href="#nasil-oynanir" style="--index:2">Nasıl oynanır?</a>
+        <a href="#teknoloji" style="--index:3">Meraklısına</a>
+      </nav>
+      <p class="drawer-note">Her kararın bir bedeli var.<br>Bir sonraki güne ulaş.</p>
+    </div>
+  </div>
+
 
   <main>
     <section class="hero section-shell" id="baslangic" aria-labelledby="hero-title">
