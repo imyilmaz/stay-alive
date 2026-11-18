@@ -84,16 +84,20 @@
     });
   });
 
-  const privacyModal = $('.privacy-modal');
-  $('.privacy-trigger').addEventListener('click', () => {
-    privacyModal.showModal(); document.body.classList.add('privacy-active');
-    $('.privacy-content').scrollTop = 0;
-  });
-  $('.privacy-close').addEventListener('click', () => privacyModal.close());
-  privacyModal.addEventListener('close', () => document.body.classList.remove('privacy-active'));
-  privacyModal.addEventListener('click', event => {
-    const rect = privacyModal.getBoundingClientRect();
-    if (event.target === privacyModal && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) privacyModal.close();
+  const legalDialogs = [...document.querySelectorAll('[data-legal-modal]')];
+  document.querySelectorAll('[data-legal-target]').forEach(trigger => trigger.addEventListener('click', () => {
+    const dialog = legalDialogs.find(item => item.dataset.legalModal === trigger.dataset.legalTarget);
+    if (!dialog) return;
+    dialog.showModal(); document.body.classList.add('privacy-active');
+    dialog.querySelector('.privacy-content').scrollTop = 0;
+  }));
+  legalDialogs.forEach(dialog => {
+    dialog.querySelector('.legal-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => document.body.classList.remove('privacy-active'));
+    dialog.addEventListener('click', event => {
+      const rect = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    });
   });
 
   const icons = { man: 'heart', woman: 'eye', traitor: 'fang', criminal: 'hood', soldier: 'shield', hunter: 'target', shaman: 'flask', child: 'spark', elder: 'compass', ghost: 'ghost', titan: 'titan', shadow: 'moon', ranger: 'route', medic: 'plus', oracle: 'orb' };

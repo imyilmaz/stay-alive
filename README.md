@@ -43,3 +43,7 @@ Gerçek HTTPS mağaza adresini ilgili alana yazınca o kart otomatik normal bağ
 - Satın alma/reklam: react-native-purchases (RevenueCat), react-native-google-mobile-ads.
 - Footer üzerindeki yaratıcı/iletişim bölümü İbrahim Mesut Yılmaz’ı ve üretimdeki rollerini tanıtır; destek adresi survive.support@gmail.com.
 - Gizlilik düğmesi, mevcut `privacy.html` metninin aynı sayfadaki kopyasını native dialog içinde açar. Vercel’e yönlendirme yoktur. Politika güncellenirken hem bağımsız dosya hem modal metni birlikte güncellenmeli. Bu çalışma Vercel’deki mevcut oyun/gizlilik yayınına müdahale etmez.
+
+## Güncel yayın hazırlığı
+
+`YAYIN_ONCESI.md` gerçek ortam kontrollerini ve yayın sonrası canlı takvim başlıkları talebini içerir. `node scripts/prepare-release.mjs --origin https://failsurvive.com` statik yayın paketini üretir. Gizlilik ve KVKK footer’da ayrı modal olarak açılır; aynı metinlerin doğrudan sayfaları mağaza bağlantıları için korunur. Eski metin ve KVKK yalnızca metinle tam uyum garantisi vermez; servis sözleşmeleri, rıza ve saklama uygulamaları ayrıca doğrulanmalıdır.

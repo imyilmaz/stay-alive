@@ -119,3 +119,5 @@ body .privacy-content p.date{font-size:13px}
 .thanks-mark{font-size:30px;line-height:1;color:var(--red)}
 @media(max-width:840px){.creator-ledger{grid-template-columns:1fr;gap:26px;padding:30px}.creator-signature>strong{margin:12px 0}.creator-signature{border-bottom:1px solid var(--line);padding-bottom:26px}.thanks-section{padding-bottom:65px}}
 @media(max-width:600px){.creator-ledger{padding:24px 20px;margin-top:38px}.creator-ledger .creator-roles article{gap:8px 12px}.creator-signature>strong{font-size:76px}.thanks-inner{padding:42px 0}.thanks-inner .display-title{font-size:clamp(39px,10.5vw,60px)}.thanks-names{gap:14px}.thanks-names>div{width:100%;min-width:0;padding:20px}.thanks-inner>.eyebrow{letter-spacing:.03em}}
+
+.privacy-content ul{padding-left:22px;color:#b6baab;font-size:16px;line-height:1.85}.privacy-content li+li{margin-top:12px}
