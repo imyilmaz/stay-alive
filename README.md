@@ -33,3 +33,13 @@ Gerçek HTTPS mağaza adresini ilgili alana yazınca o kart otomatik normal bağ
 4. Oyun API'si, kullanıcı kimliği ve meşale defteri ayrı güvenli servisler olarak kurulacak. Sitede hiçbir VPS adresi, parola, gizli anahtar veya hesap belgesi bulunmaz.
 
 Çalışma kararı: tanıtım sitesi önce hazırlanır; VPS kurulumu/domain yayını sonraki aşamadır. Mevcut oyun deposu değiştirilmedi. Bu çalışma yeni bir kamuya açık yayın yapmaz.
+
+## Doğrulanan teknik altyapı ve iletişim
+
+- Mobil: `hayatta-kal/package.json` ve `App.tsx` React Native + Expo kullanıyor. Bu depoda .NET MAUI `.csproj`/`.sln` projesi yok.
+- Oyun durumu: `src/store/gameStore.ts` Zustand; `src/core/contentFetcher.ts` AsyncStorage.
+- Sunucu: `server/package.json` Node.js/Express/Prisma; `server/Dockerfile` Docker. Sunucu yapılandırmasının bulunması canlıya alındığı anlamına gelmez.
+- Günlük içerik: `scripts/generate-daily.ts` Gemini API ve campaign doğrulayıcısını kullanıyor.
+- Satın alma/reklam: react-native-purchases (RevenueCat), react-native-google-mobile-ads.
+- Footer üzerindeki yaratıcı/iletişim bölümü İbrahim Mesut Yılmaz’ı ve üretimdeki rollerini tanıtır; destek adresi survive.support@gmail.com.
+- Gizlilik düğmesi, mevcut `privacy.html` metninin aynı sayfadaki kopyasını native dialog içinde açar. Vercel’e yönlendirme yoktur. Politika güncellenirken hem bağımsız dosya hem modal metni birlikte güncellenmeli. Bu çalışma Vercel’deki mevcut oyun/gizlilik yayınına müdahale etmez.

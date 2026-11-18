@@ -84,6 +84,18 @@
     });
   });
 
+  const privacyModal = $('.privacy-modal');
+  $('.privacy-trigger').addEventListener('click', () => {
+    privacyModal.showModal(); document.body.classList.add('privacy-active');
+    $('.privacy-content').scrollTop = 0;
+  });
+  $('.privacy-close').addEventListener('click', () => privacyModal.close());
+  privacyModal.addEventListener('close', () => document.body.classList.remove('privacy-active'));
+  privacyModal.addEventListener('click', event => {
+    const rect = privacyModal.getBoundingClientRect();
+    if (event.target === privacyModal && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) privacyModal.close();
+  });
+
   const icons = { man: 'heart', woman: 'eye', traitor: 'fang', criminal: 'hood', soldier: 'shield', hunter: 'target', shaman: 'flask', child: 'spark', elder: 'compass', ghost: 'ghost', titan: 'titan', shadow: 'moon', ranger: 'route', medic: 'plus', oracle: 'orb' };
   const immunities = { vampire_kill: 'Vampir türündeki ölüm olaylarına bağışıklık', fall_damage: 'Düşme türündeki ölüm olaylarına bağışıklık', trap_kill: 'Tuzak türündeki ölüm olaylarına bağışıklık', animal_kill: 'Vahşi hayvan türündeki ölüm olaylarına bağışıklık', poison_kill: 'Zehir türündeki ölüm olaylarına bağışıklık' };
   const ability = passive => {
