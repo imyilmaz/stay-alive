@@ -94,3 +94,28 @@ body.privacy-active{overflow:hidden}
 @media(max-width:600px){.creator-roles{grid-template-columns:1fr;margin-top:35px}.contact-intro h3{font-size:26px}.contact-section{padding-top:10px}.contact-intro .display-title{font-size:clamp(44px,11vw,66px)}.site-footer .brand{flex-basis:100%}.site-footer>.copyright{flex-basis:100%}.site-footer>.site-credit{margin-left:auto}.privacy-toolbar{padding:14px 18px}.privacy-toolbar .eyebrow{font-size:13px;letter-spacing:.02em}.privacy-content{padding-top:22px}}
 
 body .privacy-content p.date{font-size:13px}
+
+/* Tek yaratici: her rolun karsisinda ayni imza. */
+.contact-intro h3 small{display:block;font-size:14px;color:var(--muted);letter-spacing:0;font-weight:400;margin-top:10px}
+.creator-ledger{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;margin-top:64px;padding:44px;border:1px solid var(--line);background:linear-gradient(125deg,#e65b4809,transparent 60%)}
+.creator-signature{padding-top:10px}
+.creator-signature>strong{display:block;font-family:var(--display);font-size:clamp(66px,8vw,120px);line-height:1.1;letter-spacing:-.025em;margin:24px 0 12px;font-weight:700}
+.creator-signature>strong>span{color:var(--red)}
+.creator-signature p{color:var(--muted)}
+.creator-ledger .creator-roles{display:block;margin:0}
+.creator-ledger .creator-roles article{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 22px;padding:20px 0}
+.creator-ledger .creator-roles article:first-child{border-top:0;padding-top:0}
+.creator-ledger .creator-roles article:last-child{padding-bottom:0}
+.creator-ledger .creator-roles h3{font-size:16px;margin:0}
+.creator-ledger .creator-roles p{grid-column:1/-1;font-size:16px;line-height:1.6;margin:0}
+.role-credit{font-size:16px;color:var(--red);font-weight:500}
+.thanks-section{padding-bottom:100px}
+.thanks-inner{position:relative;padding:64px 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;background:radial-gradient(ellipse at 50% 0,#bdc69e0b,transparent 65%)}
+.thanks-inner .display-title{font-size:clamp(46px,6vw,82px);margin:24px 0}
+.thanks-inner>p{color:var(--muted)}
+.thanks-names{display:flex;justify-content:center;gap:28px;margin-top:35px;flex-wrap:wrap}
+.thanks-names>div{display:flex;align-items:center;justify-content:center;gap:18px;padding:22px 36px;border:1px solid var(--line);min-width:240px}
+.thanks-names strong{font-size:clamp(24px,3vw,34px);font-weight:500;letter-spacing:-.04em}
+.thanks-mark{font-size:30px;line-height:1;color:var(--red)}
+@media(max-width:840px){.creator-ledger{grid-template-columns:1fr;gap:26px;padding:30px}.creator-signature>strong{margin:12px 0}.creator-signature{border-bottom:1px solid var(--line);padding-bottom:26px}.thanks-section{padding-bottom:65px}}
+@media(max-width:600px){.creator-ledger{padding:24px 20px;margin-top:38px}.creator-ledger .creator-roles article{gap:8px 12px}.creator-signature>strong{font-size:76px}.thanks-inner{padding:42px 0}.thanks-inner .display-title{font-size:clamp(39px,10.5vw,60px)}.thanks-names{gap:14px}.thanks-names>div{width:100%;min-width:0;padding:20px}.thanks-inner>.eyebrow{letter-spacing:.03em}}
