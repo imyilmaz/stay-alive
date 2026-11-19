@@ -1,3 +1,4 @@
+import { syncLegalPages } from './sync-legal-pages.mjs';
 import { readFile, writeFile, mkdir, cp, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -7,6 +8,7 @@ const origin = new URL(arg >= 0 ? process.argv[arg + 1] : 'https://failsurvive.c
 if (origin.protocol !== 'https:' || origin.pathname !== '/' || origin.search || origin.hash || origin.username || origin.password || /localhost|127\.0\.0\.1|YOUR_/i.test(origin.hostname)) throw new Error('Gerçek, HTTPS kök site adresi gerekli.');
 const base = origin.origin;
 const output = path.join(root, 'dist');
+await syncLegalPages();
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 const files = ['index.html', 'styles.css', 'script.js', 'site.config.js', 'characters.js', 'splash.jpg', 'well_done2.jpg', 'favicon.png', 'privacy.html', 'kvkk.html', 'app-ads.txt', 'assets'];

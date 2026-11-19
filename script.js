@@ -54,33 +54,19 @@
     }
   });
 
-  // Native details klavye davranisini koruyan, tek acik yanitli slide animasyonu.
-  const faqItems = $$('.faq-list details');
-  const faqStates = new Map();
-  const slideFaq = (item, open) => {
-    const summary = item.querySelector('summary');
-    const current = item.getBoundingClientRect().height;
-    const previous = faqStates.get(item);
-    if (previous?.animation) previous.animation.cancel();
-    const state = { open, animation: null }; faqStates.set(item, state);
-    summary.setAttribute('aria-expanded', String(open));
-    if (reducedMotion.matches || !item.animate) { item.open = open; item.style.height = ''; return; }
-    item.style.height = ''; item.open = true;
-    const target = open ? item.getBoundingClientRect().height : summary.getBoundingClientRect().height + parseFloat(getComputedStyle(item).borderTopWidth) + parseFloat(getComputedStyle(item).borderBottomWidth);
-    item.style.overflow = 'hidden';
-    state.animation = item.animate([{ height: current + 'px' }, { height: target + 'px' }], { duration: 320, easing: 'cubic-bezier(.22,1,.36,1)' });
-    state.animation.onfinish = () => {
-      if (faqStates.get(item) !== state) return;
-      item.open = open; item.style.height = ''; item.style.overflow = ''; state.animation = null;
-    };
+  // Grid satiri dogal icerik boyutuna kayar; piksel yuksekligi veya bitis sifirlamasi yok.
+  const faqItems = $$('.faq-item');
+  const setFaqOpen = (item, open) => {
+    item.classList.toggle('is-open', open);
+    item.querySelector('.faq-question').setAttribute('aria-expanded', String(open));
+    item.querySelector('.faq-answer').inert = !open;
   };
   faqItems.forEach(item => {
-    const summary = item.querySelector('summary'); summary.setAttribute('aria-expanded', String(item.open));
-    summary.addEventListener('click', event => {
-      event.preventDefault();
-      const open = !(faqStates.get(item)?.open ?? item.open);
-      if (open) faqItems.forEach(other => { if (other !== item && (faqStates.get(other)?.open ?? other.open)) slideFaq(other, false); });
-      slideFaq(item, open);
+    setFaqOpen(item, false);
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      const open = !item.classList.contains('is-open');
+      faqItems.forEach(other => { if (other !== item) setFaqOpen(other, false); });
+      setFaqOpen(item, open);
     });
   });
 
@@ -195,6 +181,38 @@
     calendar.append(cell);
   }
   $('#copyright-year').textContent = String(new Date().getFullYear());
+
+  // Sadece tasan bantlari kaydir; font yuklemesi ve ekran degisimi tekrar olculur.
+  const marquees = $$('[data-marquee]').map(container => {
+    const track = container.querySelector('.marquee-track');
+    const content = track.querySelector('.marquee-content');
+    const copy = content.cloneNode(true);
+    copy.classList.add('marquee-copy'); copy.setAttribute('aria-hidden', 'true'); copy.inert = true;
+    track.append(copy);
+    return { container, track, content };
+  });
+  let marqueeFrame;
+  const updateMarquees = () => {
+    cancelAnimationFrame(marqueeFrame);
+    marqueeFrame = requestAnimationFrame(() => {
+      marquees.forEach(({ container, track, content }) => {
+        const width = content.getBoundingClientRect().width;
+        const overflow = !reducedMotion.matches && width > container.clientWidth + 1;
+        const distance = width + parseFloat(getComputedStyle(track).columnGap || '36');
+        container.style.setProperty('--marquee-distance', `-${distance}px`);
+        container.style.setProperty('--marquee-duration', `${Math.max(15, distance / 42)}s`);
+        container.classList.toggle('is-marquee', overflow);
+      });
+    });
+  };
+  window.addEventListener('resize', updateMarquees, { passive: true });
+  reducedMotion.addEventListener('change', updateMarquees);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(updateMarquees);
+    marquees.forEach(({ container }) => observer.observe(container));
+  }
+  if (document.fonts?.ready) document.fonts.ready.then(updateMarquees);
+  updateMarquees();
 
   if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     document.body.classList.add('has-js');

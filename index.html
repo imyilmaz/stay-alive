@@ -165,14 +165,13 @@
         <p class="store-note">Şimdilik hazırlık aşamasında. İndirme bağlantıları yakında.</p>
       </div>
       <div class="hero-bottom"><a class="scroll-cue" href="#hikaye"><span></span> HİKÂYEYE GİR</a>
-        <div class="hero-meta"><span>TÜRKÇE</span><i></i><span>ANDROID + iOS</span><i></i><span>15 KARAKTER</span></div>
+        <div class="hero-meta marquee" data-marquee><div class="marquee-track"><div class="marquee-content"><span>TÜRKÇE</span><i></i><span>ANDROID + iOS</span><i></i><span>15 KARAKTER</span></div></div></div>
         <span class="edition">BİR SONRAKİ GÜNE ULAŞ.</span>
       </div>
     </section>
 
-    <div class="manifesto-strip" aria-hidden="true">
-      <div>HER GÜN BAŞKA BİR İHTİMAL <span>✳</span> HER KARAR BAŞKA BİR SON <span>✳</span> HAYATTA KAL <span>✳</span>
-      </div>
+    <div class="manifesto-strip marquee" data-marquee aria-hidden="true">
+      <div class="marquee-track"><div class="marquee-content">HER GÜN BAŞKA BİR İHTİMAL <span>✳</span> HER KARAR BAŞKA BİR SON <span>✳</span> HAYATTA KAL <span>✳</span></div></div>
     </div>
 
     <section class="story-section section-shell" id="hikaye" aria-labelledby="story-title">
@@ -371,18 +370,19 @@
             değildir.</p>
         </div>
       </div>
-      <div class="branching-path reveal">
-        <div class="path-description"><span class="eyebrow">BİR ROTA ÖRNEĞİ</span>
-          <h3>03'ten sonra<br>04 gelmek zorunda değil.</h3>
+      <div class="branching-path reveal" id="rota-ornegi">
+        <div class="path-description"><span class="eyebrow">BİR ROTA ÖRNEĞİ</span><h3>Her karar ileri götürmez.</h3><p>Bir seçim seni ileri taşıyabilir; yanlış bir karar daha önceki numaralı bir sahneye döndürebilir.</p></div>
+        <div class="path-nodes" role="img" aria-label="Örnek rota: 3. sahneden 20. sahneye ilerle, bir kararla 12. sahneye geri dön, ardından farklı bir yoldan 35. sahnedeki kaçış yoluna ulaş.">
+          <span class="path-node node-start">03<small>İLK KARAR</small></span>
+          <i class="path-arrow arrow-first" aria-hidden="true"><svg><use href="#i-arrow"/></svg></i>
+          <span class="path-node node-choice">20<small>BİR KARAR</small></span>
+          <i class="path-arrow arrow-backtrack" aria-hidden="true"><svg><use href="#i-arrow"/></svg></i>
+          <span class="path-node node-backtrack">12<small>GERİ DÖNÜŞ</small></span>
+          <i class="path-arrow arrow-last" aria-hidden="true"><svg><use href="#i-arrow"/></svg></i>
+          <span class="path-node exit-node node-exit">35<small>KAÇIŞ YOLU</small></span>
         </div>
-        <div class="path-nodes" aria-label="Örnek rota: adım 3, adım 11, adım 24, kaçış">
-          <span>03<small>KARAR</small></span><i>↗</i><span>11<small>YENİ SAHNE</small></span><i>↘</i><span>24<small>SON
-              İHTİMAL</small></span><i>→</i><span class="exit-node"><svg>
-              <use href="#i-arrow" />
-            </svg><small>KAÇIŞ</small></span></div>
       </div>
-      <p class="route-footnote reveal">Seçimler birden fazla adımı atlayabilir, farklı bir dala açılabilir veya hikâyeyi
-        bitirebilir. Seçenek numarası bir sonraki bölüm numarası değildir.</p>
+      <p class="route-footnote reveal">Bu açıklayıcı örnekte 03’ten 20’ye atlayıp, bir kararın ardından 12’ye geri dönersin; sonra başka bir yoldan çıkış sahnesine ulaşabilirsin. Seçimler ileri atlayabilir, geriye götürebilir, başka bir dala açılabilir veya hikâyeyi bitirebilir. Sahne numarası bir ilerleme yüzdesi değildir; her yeni karar daha büyük bir numaraya götürmez.</p>
     </section>
 
     <section class="faq-section section-shell" aria-labelledby="details-title">
@@ -390,33 +390,18 @@
       <div class="faq-layout">
         <h2 class="display-title reveal" id="details-title">AKLINDA<br><span>KALMASIN.</span></h2>
         <div class="faq-list reveal">
-          <details>
-            <summary>Bir günün bölümünü kaçırırsam ne olur?<span>+</span></summary>
-            <p>O günün yayımlanmış bölümüne Türkiye saatiyle 23:59:59'a kadar girersen erişimin korunur. Hiç girmediğin
+          <article class="faq-item is-open"><h3><button class="faq-question" type="button" id="faq-question-1" aria-expanded="true" aria-controls="faq-answer-1">Bir günün bölümünü kaçırırsam ne olur?<span>+</span></button></h3><div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1"><div class="faq-answer-inner"><p>O günün yayımlanmış bölümüne Türkiye saatiyle 23:59:59'a kadar girersen erişimin korunur. Hiç girmediğin
               geçmiş günler kilitlenir; tamamladığın ödüllü reklamla açabilirsin. Reklamları Kaldır satın alımı
-              yayımlanmış geçmiş günlere reklamsız erişim sağlar; gelecek günleri erkenden açmaz.</p>
-          </details>
-          <details>
-            <summary>Zor mod gerçekten daha zor mu?<span>+</span></summary>
-            <p>Evet. Şans atışlarına 15 yüzde puanı ceza, alınan hasara %60 artış ve adım başına 5 ek enerji maliyeti
+              yayımlanmış geçmiş günlere reklamsız erişim sağlar; gelecek günleri erkenden açmaz.</p></div></div></article>
+          <article class="faq-item is-open"><h3><button class="faq-question" type="button" id="faq-question-2" aria-expanded="true" aria-controls="faq-answer-2">Zor mod gerçekten daha zor mu?<span>+</span></button></h3><div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2"><div class="faq-answer-inner"><p>Evet. Şans atışlarına 15 yüzde puanı ceza, alınan hasara %60 artış ve adım başına 5 ek enerji maliyeti
               uygulanır. Karakter etkileri ve yuvarlama sonuçları değiştirebilir. Zor modu satın aldıktan sonra açıp
-              kapatabilirsin; tercihin yeni oyun denemesinde uygulanır.</p>
-          </details>
-          <details>
-            <summary>Aynı bölümü tekrar kazanarak XP toplayabilir miyim?<span>+</span></summary>
-            <p>Bir tarihin yalnız ilk galibiyeti XP verir. Yeniden oynamak yeni yolları görmek için bir fırsattır; aynı
-              günlük hikâyeden tekrar XP kazanılmaz.</p>
-          </details>
-          <details>
-            <summary>Özel karakterleri almak zorunda mıyım?<span>+</span></summary>
-            <p>Hayır. İki başlangıç karakteri ve seviyeyle açılan sekiz karakter bulunur. Beş özel karakter ayrı satın
-              alımlardır. Kalıcı karakter haklarıyla beş kullanımlık tüketilebilir meşale paketi farklı ürünlerdir.</p>
-          </details>
-          <details>
-            <summary>Oyunu ne zaman indirebilirim?<span>+</span></summary>
-            <p>Mobil sürümler hazırlanıyor. Google Play ve App Store bağlantıları hazır olduğunda bu sayfaya eklenecek.
-              Şu an mağaza kartları indirme başlatmaz.</p>
-          </details>
+              kapatabilirsin; tercihin yeni oyun denemesinde uygulanır.</p></div></div></article>
+          <article class="faq-item is-open"><h3><button class="faq-question" type="button" id="faq-question-3" aria-expanded="true" aria-controls="faq-answer-3">Aynı bölümü tekrar kazanarak XP toplayabilir miyim?<span>+</span></button></h3><div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3"><div class="faq-answer-inner"><p>Bir tarihin yalnız ilk galibiyeti XP verir. Yeniden oynamak yeni yolları görmek için bir fırsattır; aynı
+              günlük hikâyeden tekrar XP kazanılmaz.</p></div></div></article>
+          <article class="faq-item is-open"><h3><button class="faq-question" type="button" id="faq-question-4" aria-expanded="true" aria-controls="faq-answer-4">Özel karakterleri almak zorunda mıyım?<span>+</span></button></h3><div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4"><div class="faq-answer-inner"><p>Hayır. İki başlangıç karakteri ve seviyeyle açılan sekiz karakter bulunur. Beş özel karakter ayrı satın
+              alımlardır. Kalıcı karakter haklarıyla beş kullanımlık tüketilebilir meşale paketi farklı ürünlerdir.</p></div></div></article>
+          <article class="faq-item is-open"><h3><button class="faq-question" type="button" id="faq-question-5" aria-expanded="true" aria-controls="faq-answer-5">Oyunu ne zaman indirebilirim?<span>+</span></button></h3><div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5"><div class="faq-answer-inner"><p>Mobil sürümler hazırlanıyor. Google Play ve App Store bağlantıları hazır olduğunda bu sayfaya eklenecek.
+              Şu an mağaza kartları indirme başlatmaz.</p></div></div></article>
         </div>
       </div>
     </section>
@@ -464,49 +449,49 @@
       <div class="contact-intro reveal">
         <h2 class="display-title" id="contact-title">BİR OYUN.<br><span>TEK BİR YARATICI.</span></h2>
         <div><span class="eyebrow">BAĞIMSIZ BİR ÜRETİM</span>
-          <h3>brahim <small>İbrahim Mesut Yılmaz</small></h3>
-          <p>Ben brahim; Hayatta Kal’ın fikir sahibi, yaratıcısı ve geliştiricisiyim. Oyunun tasarımını, geliştirmesini
-            ve görsel üretimin yönetimini üstleniyorum. Günlük hikâye üretme motorunda incetarik, sunucu desteğinde
-            chgmikail katkı sağlıyor.</p><a class="contact-email"
+          <h3><a href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim <small>İbrahim Mesut Yılmaz</small></a></h3>
+          <p>Ben <a href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim</a>; Hayatta Kal’ın fikir sahibi, yaratıcısı ve geliştiricisiyim. Oyunun tasarımını, geliştirmesini
+            ve görsel üretimin yönetimini üstleniyorum. Günlük hikâye üretme motorunda <a href="https://github.com/incetarik" target="_blank" rel="noopener noreferrer">incetarik</a>, sunucu desteğinde
+            <a href="https://github.com/chgmikail" target="_blank" rel="noopener noreferrer">chgmikail</a> katkı sağlıyor.</p><a class="contact-email"
             href="mailto:survive.support@gmail.com">survive.support@gmail.com</a>
         </div>
       </div>
       <div class="creator-ledger reveal">
         <div class="creator-signature"><span class="eyebrow">YARATICI & KATKIDA
-            BULUNANLAR.</span><strong>brahim<span>.</span></strong>
+            BULUNANLAR.</span><strong><a href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim<span>.</span></a></strong>
           <p>Bir fikir, birçok emek.</p>
         </div>
         <div class="creator-roles">
           <article>
-            <h3>Fikir & yaratım</h3><strong class="role-credit">brahim</strong>
+            <h3>Fikir & yaratım</h3><a class="role-credit" href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim</a>
             <p>Oyunun fikri, dünyası ve yaratıcı yönü.</p>
           </article>
           <article>
-            <h3>Kod & geliştirme</h3><strong class="role-credit">brahim</strong>
+            <h3>Kod & geliştirme</h3><a class="role-credit" href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim</a>
             <p>Oyun mekanikleri, mobil deneyim ve teknik geliştirme.</p>
           </article>
           <article>
-            <h3>Hikâye & oyun tasarımı</h3><strong class="role-credit">brahim</strong>
+            <h3>Hikâye & oyun tasarımı</h3><a class="role-credit" href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim</a>
             <p>Karakterler, seçimler ve hayatta kalma kuralları.</p>
           </article>
           <article>
-            <h3>Görsel üretim & sanat yönü</h3><strong class="role-credit">brahim</strong>
+            <h3>Görsel üretim & sanat yönü</h3><a class="role-credit" href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim</a>
             <p>Görsellerin hazırlatılması, seçimi ve uyarlanması.</p>
           </article>
           <article>
-            <h3>Üretim & yayın</h3><strong class="role-credit">brahim</strong>
+            <h3>Üretim & yayın</h3><a class="role-credit" href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim</a>
             <p>Test, içerik akışı ve mağaza hazırlıkları.</p>
           </article>
           <article>
-            <h3>Web & iletişim</h3><strong class="role-credit">brahim</strong>
+            <h3>Web & iletişim</h3><a class="role-credit" href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">brahim</a>
             <p>Site tasarımı, geliştirme ve oyuncu iletişimi.</p>
           </article>
           <article>
-            <h3>Günlük hikâye üretme motoru</h3><strong class="role-credit">incetarik</strong>
+            <h3>Günlük hikâye üretme motoru</h3><a class="role-credit" href="https://github.com/incetarik" target="_blank" rel="noopener noreferrer">incetarik</a>
             <p>Günlük hikâye üretme motoruna katkı.</p>
           </article>
           <article>
-            <h3>Sunucu desteği</h3><strong class="role-credit">chgmikail</strong>
+            <h3>Sunucu desteği</h3><a class="role-credit" href="https://github.com/chgmikail" target="_blank" rel="noopener noreferrer">chgmikail</a>
             <p>Oyunun sunucu altyapısına destek.</p>
           </article>
         </div>
@@ -518,8 +503,8 @@
         <h2 class="display-title" id="thanks-title">KATKILARINIZ İÇİN<br><span>TEŞEKKÜRLER.</span></h2>
         <p>Hayatta Kal’a katkılarından dolayı:</p>
         <div class="thanks-names">
-          <div><span class="thanks-mark" aria-hidden="true">✳</span><strong>@incetarik</strong></div>
-          <div><span class="thanks-mark" aria-hidden="true">✳</span><strong>@chgmikail</strong></div>
+          <a class="contributor-card" href="https://github.com/incetarik" target="_blank" rel="noopener noreferrer"><span class="thanks-mark" aria-hidden="true">✳</span><strong>@incetarik</strong></a>
+          <a class="contributor-card" href="https://github.com/chgmikail" target="_blank" rel="noopener noreferrer"><span class="thanks-mark" aria-hidden="true">✳</span><strong>@chgmikail</strong></a>
         </div>
       </div>
     </section>
@@ -529,7 +514,7 @@
       </svg><span>HAYATTA KAL</span></a><span class="copyright">© <span id="copyright-year">2026</span> Hayatta Kal ·
       Tüm hakları saklıdır.</span><button class="privacy-trigger" data-legal-target="privacy" type="button"
       aria-haspopup="dialog">Gizlilik</button><button class="privacy-trigger kvkk-trigger" data-legal-target="kvkk"
-      type="button" aria-haspopup="dialog">KVKK</button><span class="site-credit"><strong>by Brahim</strong></span>
+      type="button" aria-haspopup="dialog">KVKK</button><span class="site-credit"><a href="https://github.com/imyilmaz" target="_blank" rel="noopener noreferrer">by Brahim</a></span>
   </footer>
 
   <dialog class="privacy-modal privacy-modal" data-legal-modal="privacy" aria-labelledby="privacy-title">
